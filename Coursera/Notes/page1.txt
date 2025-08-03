@@ -1,0 +1,2 @@
+Forms ins html are used to collect user input. It allows website to collect essential info.
+These are creatd by form tag.
