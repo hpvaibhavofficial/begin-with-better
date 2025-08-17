@@ -79,15 +79,60 @@ console.log(arr);
 //     console.log(ind + " : "+element);
 // })
 
-arr.sort();
-console.log("Sorted Array : "+arr);
+// arr.sort();
+// console.log("Sorted Array : "+arr);
 
-arr.reverse();
-console.log("Reversed Array : "+arr);
+// arr.reverse();
+// console.log("Reversed Array : "+arr);
 
-let x = [1,2,3,4,5,6,7,8,9,10]
-let u = x.map((xx)=> xx*2);
-console.log("Mapped Array : "+u);
+// let x = [1,2,3,4,5,6,7,8,9,10]
+// let u = x.map((xx)=> xx*2);
+// console.log("Mapped Array : "+u);
+
+
+// let a1 = [12,1221,121,332,2]
+// let a2 = a1.filter((a) => a%2 ==1)
+// console.log(a2)
+
+
+
+// let a3 = [12,110,112,11,100,1010,1100,1120,1001,11029]
+// aa = a3.filter((a)=>a%2==0).map((a)=>a/2);
+// console.log(aa);
+
+
+// const nums = [1,2,34,5,6,7,8,9,10];
+// newNums = nums.filter( (num)=> num%2 == 0).map((nums)=> nums*22);
+// console.log(newNums);
+
+// const mynums = [1,2,3,8]
+// const tot = mynums.reduce((acc,curr)=> acc+curr,0);
+// const mulNums = mynums.reduce((acc,curr) => acc*curr,1);
+// console.log(mulNums)
+// console.log("Total : "+tot);
+
+// const shp =[
+//     {name:"Shirt", price: 500},
+//     {name:"Pant", price: 1000},
+//     {name:"Shoes", price: 2000},
+//     {name:"Watch", price: 3000},
+//     {name:"Belt", price: 1500}
+// ];
+
+// const total  = shp.reduce((acc,curitem)=> acc+curitem.price,0);
+// console.log("Total Price of all items : "+total); 
+// const m = shp.reduce((acc,item) => Math.max(acc,item.price),0)
+// console.log("Max Price of all items : "+m);
+
+// console.log("MIN PRICE : "+ shp.reduce((acc,item)=> Math.min(acc,item.price),Infinity));
+
+let aa = [1,2,3,4,5,6,7,8,9,10];
+console.log(aa.slice(2,4));
+console.log(aa.slice(2));
+
+let bb = aa.slice(-2);
+console.log(bb);
+
 
 // Array creation methods
 //  -> using array literals []  let a = [01,112,22,"ss

@@ -67,9 +67,12 @@ Methods used in array
 -> arr.sort() -> used to sort the array
 -> arr.reverse() -> To reverse an array
 -> map -> is a built in array method used to create a new array by appling  some function to each and every element of an array.
+-> filter -> method used to filter the content of an array based on certain condition
+-> reduce -> method used to reduce the elements of array into single value on the basis of given condition. (contains accumulator,currval,initialvalue) It is mostly used to perform the aggeregate operations like sum mmin max  
+-> arr.slice(stindex,endindex) -> used to select a particulaar portion of an array .its return type is array
 -> arr.splice(startIndex , no. of elements to be deleted ,{adding elements 1,ele2 ...}) - > used to add remove and replace elements in array from any position.
 Splice returns an array of removed items or elements.
-->
+-> find() -> 
 
 
 --------------------------------------------------------------------------------------------------
