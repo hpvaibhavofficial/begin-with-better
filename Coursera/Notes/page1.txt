@@ -4,5 +4,53 @@ These are creatd by form tag.
 --------------------------------------------------------------------------------------------------
 JavaScript Basics
 --------------------------------------------------------------------------------------------------
+JavaScript is lightweight interpreted and single threaded language which is used to create dynamic content for web pages.
+
+We can declare variables in 3 ways
+var -> can be redeclared, reassigned , function scoped and can be hoisted and initialized with undefined in hoisting.
+let -> can be reassigned but cannot be redeclared , Hoisted but in TDZ and cannnot be accessed before initialization
+const -> is mostly used to declare constants cannot be reassigned and redeclared.and also hoisted in TDZ.
+
+Data Types
+Primitive : Numnber , String,Boolean ,Null, undefined , Symbol, Bigint
+Non Primitive : Array,Object,function , date
+
+Type Conversion
+let s = "123";
+let n = Number(s);  // Converts string to number
+console.log(n);
+
+Type Coercion 
+Automatically Conversion of one data type to another. Also known as implicit type conversion.
+Example : 
+console.log(1 + "2");   // "12"   (number → string)
+console.log("6" - 2);   // 4      (string → number)
+console.log("6" * "2"); // 12     (both strings → numbers)
+
+
+Type Conversion 
+Conversion of one data type to another manually by user. Also known as explicit type conversion.
+
+== vs ===
+== ->  compares only the data not their types (kind of its loose equality check)
+=== -> compares data types also and no Coercion happens (strict equality check)
+
+Hoisting
+Automatically declarations are moved to top of scope.
+var -> hoisted and initialized with undefined
+let / const -> hoisted but uninitialized
+Function declarations -> fully hoisted with body
+
+Objects in JavaScript
+A collection of key value pairs. Keys are called properties.
+
+
+Arrays in JavaScript
+Arrays in JavaScript are ordered list of values. They ae used to store multiple values into a single variable.
+In js arrays are heterogeneous.We can store multiple values of different data types in an array.
+Creation of array can be done using two ways 
+ -> using array literals []
+ -> using new keyword (Constructor)
+
 
 --------------------------------------------------------------------------------------------------
