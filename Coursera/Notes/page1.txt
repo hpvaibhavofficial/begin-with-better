@@ -49,8 +49,27 @@ Arrays in JavaScript
 Arrays in JavaScript are ordered list of values. They ae used to store multiple values into a single variable.
 In js arrays are heterogeneous.We can store multiple values of different data types in an array.
 Creation of array can be done using two ways 
- -> using array literals []
- -> using new keyword (Constructor)
+ -> using array literals []  let a = [01,112,22,"ssgs",null,NaN,undefined]
+ -> using new keyword (Constructor) = let a  = new Array(1,21,221)
+
+Methods used in array
+-> arr.length()  - returns length of an array
+-> arr.push()    - adds an element to last of array
+-> arr.unshift() - adds an element to front of an array
+-> arr.pop()     - remove an element from end of array
+-> arr.shift()   - removes an element from begining of an Array
+-> arr.indexOf("ele") - return the index of that element in array otherwise -1
+-> arr.includes(ele) - to check whether an element is present in an array (return true or false)
+-> arr.lastIndexOf(ele) - return the last  occernce index of an element basically search from right to left
+-> arr.concat(arr2) - concatenates or joins two different arrays (it returns a new joined array)
+-> arr.toString() - convert array to string
+-> arr.forEach((ele)=> console.log(ele)) -> use to print array 
+-> arr.sort() -> used to sort the array
+-> arr.reverse() -> To reverse an array
+-> map -> is a built in array method used to create a new array by appling  some function to each and every element of an array.
+-> arr.splice(startIndex , no. of elements to be deleted ,{adding elements 1,ele2 ...}) - > used to add remove and replace elements in array from any position.
+Splice returns an array of removed items or elements.
+->
 
 
 --------------------------------------------------------------------------------------------------
