@@ -27,7 +27,6 @@ console.log(1 + "2");   // "12"   (number → string)
 console.log("6" - 2);   // 4      (string → number)
 console.log("6" * "2"); // 12     (both strings → numbers)
 
-
 Type Conversion 
 Conversion of one data type to another manually by user. Also known as explicit type conversion.
 
@@ -43,7 +42,6 @@ Function declarations -> fully hoisted with body
 
 Objects in JavaScript
 A collection of key value pairs. Keys are called properties.
-
 
 Arrays in JavaScript
 Arrays in JavaScript are ordered list of values. They ae used to store multiple values into a single variable.
@@ -72,7 +70,21 @@ Methods used in array
 -> arr.slice(stindex,endindex) -> used to select a particulaar portion of an array .its return type is array
 -> arr.splice(startIndex , no. of elements to be deleted ,{adding elements 1,ele2 ...}) - > used to add remove and replace elements in array from any position.
 Splice returns an array of removed items or elements.
--> find() -> 
+-> find() -> used to find the first value on the basis of callback functions
+
+Functions in JavaScript
+Functions are reusable blocks of code which are designed to perform a specific tasks.
+-> Named Functions -> simple javascript function with function keyword and having some name. Can be Hoisted
+-> Function Expressions -> functions declared and assigned to a variable. Cannot be hoisted 
+-> Arrow Functions -> concise syntax to write functions in js. 
+-> Anonymous functions -> functions without any name.
+
+Higher Order functions
+Functions which takes another functions as argument like a callback or return a function as a result.
+
+Callback Function
+Functions that are passed as an argument to another functions.
+
 
 
 --------------------------------------------------------------------------------------------------

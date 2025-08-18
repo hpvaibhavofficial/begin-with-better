@@ -132,6 +132,14 @@ console.log(aa.slice(2));
 
 let bb = aa.slice(-2);
 console.log(bb);
+console.log(aa.findIndex((x) =>x>53));
+
+console.log(aa.includes(4));
+
+const cav = {
+    name: "Vaibhav",
+    age: 21,    
+}
 
 
 // Array creation methods
