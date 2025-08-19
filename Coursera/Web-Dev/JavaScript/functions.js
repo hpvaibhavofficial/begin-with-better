@@ -29,9 +29,18 @@
 // }
 // code()
 
-function code() {
-  this.username = "vb";
-  console.log(this.username);
-}
+// function code() {
+//   this.username = "vb";
+//   console.log(this.username);
+// }
 
-new code(); // "vb"
+// new code(); // "vb"
+
+
+(function demoiife(){
+  console.log("Hi i am IIFE")
+})();
+
+((name) => {
+  console.log(`${name} is here and ready to fight.`)
+})("Vaibhav Bhardwaj");

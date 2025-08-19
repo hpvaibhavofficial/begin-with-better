@@ -85,7 +85,10 @@ Functions which takes another functions as argument like a callback or return a 
 Callback Function
 Functions that are passed as an argument to another functions.
 
-IIFE -> Immediatly 
+IIFE -> Immediately Invoked Functions Expressions
+special functions which are used when we need to invoke a function immediatly after definition.
+It is used to get rid of a global scope pollution problem which happens with variables using var.
+
 
 Strings in JavaScript
 Strings are sequence of characters.
