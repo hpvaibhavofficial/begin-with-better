@@ -85,6 +85,8 @@ Functions which takes another functions as argument like a callback or return a 
 Callback Function
 Functions that are passed as an argument to another functions.
 
+IIFE -> Immediatly 
+
 Strings in JavaScript
 Strings are sequence of characters.
 can be created using "" '' and `backticks`. also we can create using string constructor.
@@ -100,9 +102,18 @@ Created using
 We can access the objects value using obj.key but mostly we use obj[key].
 We mostly use for in loop to iterate over properties of objects. 
 Important methods to be used on Objects
+ -> Object.assign(obj1,obj2) -> used to copy objects to a single object {Mostly spread operator is use ...assign is not used much.}
+ -> Object.keys(objname) -> returns an array of all properties or keys
+ -> Object.values(objname) -> returns an array of all values
+ -> Object.entries(objname) -> returns an array of all key and val pairs
+ -> Object.freeze(objname) -> prevents modifying deleting and adding new properties
+ -> Object.seal(objname) -> prevents adding or deleting but helps in updating existed ones
+ -> objname.hasOwnProperty(prop) -> return true if key exxists 
  -> 
- ->
- ->
- ->
- ->
+
+this ->  this is special keyword that refers to current executing context or we can say the object which is under execution 
+it basically refers to current object in use.
+when we log this in browser console then it gives window..but if we execute using node then it gives empty {} object or context.
+
+
 --------------------------------------------------------------------------------------------------

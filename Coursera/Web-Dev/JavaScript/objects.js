@@ -170,11 +170,19 @@ const obj1 = {1:'a' , 2:'b'}
 
 // console.log(obj4 === obj1);
 // console.log(Object.keys(obj1))
-console.log(Object.values(obj1))
-console.log(Object.entries(obj1))
-console.log(obj1.hasOwnProperty(1))
-console.log(1 in obj1)
+// console.log(Object.values(obj1))
+// console.log(Object.entries(obj1))
+// console.log(obj1.hasOwnProperty(1))
+// console.log(1 in obj1)
 
+const objj = {
+    name : "Bruce Wayne",
+    productionHouse:"DC Extended",
+    genere : "Superhero"
+}
 
+// console.log(productionHouse)
+const {productionHouse: pdh} = objj
+console.log(pdh)
 
 
