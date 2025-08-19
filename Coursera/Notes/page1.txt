@@ -116,4 +116,6 @@ it basically refers to current object in use.
 when we log this in browser console then it gives window..but if we execute using node then it gives empty {} object or context.
 
 
+
+
 --------------------------------------------------------------------------------------------------
