@@ -85,6 +85,24 @@ Functions which takes another functions as argument like a callback or return a 
 Callback Function
 Functions that are passed as an argument to another functions.
 
+Strings in JavaScript
+Strings are sequence of characters.
+can be created using "" '' and `backticks`. also we can create using string constructor.
+Strings are immutable. Means every change to string like concat replace and all will lead to creation of new string.
 
+Objects in JavaScript
+Objects in javascript are collection of key value pairs or we can say it as collection of properties.
+Created using 
+-> object literals {} 
+-> Object Constructor (const myobj = new Object();).
+-> using class 
 
+We can access the objects value using obj.key but mostly we use obj[key].
+We mostly use for in loop to iterate over properties of objects. 
+Important methods to be used on Objects
+ -> 
+ ->
+ ->
+ ->
+ ->
 --------------------------------------------------------------------------------------------------
