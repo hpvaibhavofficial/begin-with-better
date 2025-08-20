@@ -1,4 +1,4 @@
-Forms ins html are used to collect user input. It allows website to collect essential info.
+Forms in html are used to collect user input. It allows website to collect essential info.
 These are creatd by form tag.
 
 --------------------------------------------------------------------------------------------------
@@ -118,6 +118,23 @@ this ->  this is special keyword that refers to current executing context or we 
 it basically refers to current object in use.
 when we log this in browser console then it gives window..but if we execute using node then it gives empty {} object or context.
 
+Execution of js
+When we give our javascript file the firstly a Global Ec is created and it is refered as this.
+It runs in two phases 
+-> memory creation phases (Creation phase) -> space is allocated for all var and all
+-> Execution phase 
+
+DOM -> Document object model
+Dom is document object model it is programming interface provided by browser which basically represents the stucture of html as tree of objects.
+Browser takes the HTML and creates a tree like stucture.
+Every element attribute tags and even the text written in html doc becomes the node of this tree.
+DOM allows javascript to interact and manipulate the page dynamically.
+Our webpage is a tree and document is root.
+
+-> const d = document.getElementById('id') 
+-> d.innerText -> returns only the visible text it ignores the hidden text styled with css
+-> d.innerHTMLc -> returns the visible and hidden text both basically it gives the text exactly as it appears in DOM.
+-> d.textContent -> return the complete html if written inside incuding tag and all
 
 
 
