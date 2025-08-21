@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model Part - 2</title>
+
+    <style>
+        .bd{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body id = "bd" >
+    <h1 id = "topHeader"> Document Object Model</h1>
+    <div id="div1">I am div1 with id 1</div>
+    <div id="div2">I am div2 with id div2</div>
+
+    <div class="cl1">I am div tag with class cl1</div>
+    <div class="cl1">I am 2nd div with class cl2</div>
+
+
+    <script>
+        console.log(document.getElementById('topHeader'))
+        console.log(document.getElementsByClassName('cl1')[1])
+
+    </script>
+
+</body>
+</html>

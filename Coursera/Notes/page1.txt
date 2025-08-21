@@ -85,7 +85,7 @@ Functions which takes another functions as argument like a callback or return a 
 Callback Function
 Functions that are passed as an argument to another functions.
 
-IIFE -> Immediately Invoked Functions Expressions
+IIFE -> Immediately Invoked Functions Expressionsw
 special functions which are used when we need to invoke a function immediatly after definition.
 It is used to get rid of a global scope pollution problem which happens with variables using var.
 
@@ -136,11 +136,11 @@ Our webpage is a tree and document is root.
 -> d.innerHTMLc -> returns the visible and hidden text both basically it gives the text exactly as it appears in DOM.
 -> d.textContent -> return the complete html if written inside incuding tag and all
 
--> document.getElementById() -> returns single element 
--> document.getElementByClassName() ->  returns html collection of all
--> document.getElementByTagName() -> returns 
--> document.getElementByName()
--> document.querySelector()
+-> document.getElementById() -> returns single element used to fetch element by its id 
+-> document.getElementByClassName() ->  returns html collection of all (array like but not array)
+-> document.getElementByTagName() -> returns html collection of all elements with that tag
+-> document.getElementByName() -> returns nodelist of all elements with the given name attribute.
+-> document.querySelector() -> 
 -> document.querySelectorAll()
 
 

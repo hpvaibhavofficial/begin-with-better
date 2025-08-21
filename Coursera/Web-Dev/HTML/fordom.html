@@ -29,6 +29,7 @@
         <li>two</li>
         <li>three</li>
     </ul>
+    <div class="div3">I am another class of div3.</div>
 
     <script>
         console.log(document.getElementById('title'))
@@ -50,7 +51,8 @@
         const myfirstItem =  myul.querySelector('li')
         myfirstItem.style.color = "green"
         myfirstItem.style.padding = "10px"
-
+        const x = document.getElementsByClassName('div3')
+        console.log(x)
 
         </script>
 </body>
