@@ -6,7 +6,7 @@
     <title>Document Object Model Part - 2</title>
 
     <style>
-        .bd{
+        #bd{
             background-color: #212121;
             color: #fff;
         }
@@ -20,6 +20,12 @@
 
     <div class="cl1">I am div tag with class cl1</div>
     <div class="cl1">I am 2nd div with class cl2</div>
+    <input type="password" name="pass" id="pass">
+    <ul>
+        <li class = "liet">Item 1</li>
+        <li class = "liet">Item 2</li>
+        <li class = "liet">Item 3</li>
+    </ul>
 
 
     <script>
@@ -27,7 +33,25 @@
         console.log(document.getElementsByClassName('cl1')[1])
         console.log(document.getElementsByTagName('div'))
         console.log(document.getElementsByName('username'))
-    </script>
+        console.log(document.querySelector('div')) //by tagname
+        console.log(document.querySelectorAll('div')) //by tagname
+
+        console.log(document.querySelector("#topHeader"))
+        console.log(document.querySelectorAll(".cl1").length)
+        console.log(document.querySelector("[type = password]"))
+        console.log(document.querySelector('ul >li:nth-of-type(3)'));
+        const x = document.querySelector('ul>li:nth-of-type(3)').style.backgroundColor = "red"
+
+        console.log(document.querySelectorAll('li'));
+        const tl = document.querySelectorAll('li')
+        console.log(tl[0]);
+        const litem = document.querySelectorAll('.liet')
+        const arr = Array.from(litem)
+        console.log(arr);
+        arr.forEach((li) => li.style.color ="violet")
+        
+         
+</script>
 
 </body>
 </html>

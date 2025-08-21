@@ -141,7 +141,12 @@ Our webpage is a tree and document is root.
 -> document.getElementByTagName() -> returns html collection of all elements with that tag
 -> document.getElementByName() -> returns nodelist of all elements with the given name attribute.
 -> document.querySelector() -> it takes a valid css selector string as its argument and returns the first element in the DOM that matches it.
--> document.querySelectorAll()
-
+In QuerySelector we can pass 
+* tagname
+* className (with .)
+* id (with #)
+* Attribute ([type = 'text'])
+* combination of selectors (div.container , ul > li)
+-> document.querySelectorAll(li:first-child)
 
 --------------------------------------------------------------------------------------------------
