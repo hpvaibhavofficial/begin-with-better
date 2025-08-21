@@ -140,7 +140,7 @@ Our webpage is a tree and document is root.
 -> document.getElementByClassName() ->  returns html collection of all (array like but not array)
 -> document.getElementByTagName() -> returns html collection of all elements with that tag
 -> document.getElementByName() -> returns nodelist of all elements with the given name attribute.
--> document.querySelector() -> 
+-> document.querySelector() -> it takes a valid css selector string as its argument and returns the first element in the DOM that matches it.
 -> document.querySelectorAll()
 
 
