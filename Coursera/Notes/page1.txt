@@ -136,6 +136,12 @@ Our webpage is a tree and document is root.
 -> d.innerHTMLc -> returns the visible and hidden text both basically it gives the text exactly as it appears in DOM.
 -> d.textContent -> return the complete html if written inside incuding tag and all
 
+-> document.getElementById() -> returns single element 
+-> document.getElementByClassName() ->  returns html collection of all
+-> document.getElementByTagName() -> returns 
+-> document.getElementByName()
+-> document.querySelector()
+-> document.querySelectorAll()
 
 
 --------------------------------------------------------------------------------------------------
