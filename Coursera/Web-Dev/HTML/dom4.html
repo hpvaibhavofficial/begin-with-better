@@ -8,4 +8,18 @@
 <body style="background-color: #212121; color: #fff;">
     
 </body>
+<script>
+    const di = document.createElement('div')
+    console.log(di)
+    di.className = 'main'
+    di.id = Math.round(Math.random()*10+1)
+    di.setAttribute("title","myTitle")
+    di.style.backgroundColor = "blue"
+    di.style.padding ="12px"
+    di.innerText = "Hello i am creating my first element using dom"
+    const add = document.createTextNode("hsivduhdh")
+    di.appendChild(add)
+
+    document.body.appendChild(di)
+</script>
 </html>
