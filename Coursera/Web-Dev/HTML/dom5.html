@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model 5</title>
+</head> 
+<body style="background-color: #212121 ; color: #fff; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+        <ul class = "cl1">
+            <li>Java</li>
+        </ul>
+</body>
+<script>
+    function addLanguage(lang){
+        const li = document.createElement('li');
+        li.textContent = `${lang}`
+        document.querySelector('.cl1').appendChild(li)
+    }   
+    addLanguage("Python")
+    addLanguage("golang")
+
+    function addOptiLang(lang){
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(lang))
+        document.querySelector('.cl1').appendChild(li)
+    }
+    addOptiLang("C++")
+
+    //Edit
+    const c2 = document.querySelector('li:nth-child(2)')
+    //c2.textContent = "Hindi"
+    const ne = document.createElement('li')
+    // ne.appendChild(document.createTextNode("Hindi English"))
+    ne.textContent = "Hindi English"
+    c2.replaceWith(ne)
+
+    //edit
+    const fl = document.querySelector('li:first-child')
+    // fl.textContent = "TypeScript"
+    const neD = document.createElement('li')
+    neD.appendChild(document.createTextNode("Hi iam new text"))
+    fl.replaceWith(neD)
+
+    // //edit
+    const firstlan = document.querySelector('li:first-child')
+    // firstlan.outerHTML = "<li> I am alang</li>"
+    firstlan.remove()
+
+</script>
+</html>
