@@ -149,7 +149,4 @@ In QuerySelector we can pass
 * combination of selectors (div.container , ul > li)
 -> document.querySelectorAll(li:first-child)
 
-
-
-
 --------------------------------------------------------------------------------------------------
