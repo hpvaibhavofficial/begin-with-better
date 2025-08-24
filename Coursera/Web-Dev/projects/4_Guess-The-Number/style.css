@@ -1,0 +1,137 @@
+html {
+  font-family: "Poppins", sans-serif;
+  background-color: #1e1e1e;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Navigation */
+nav {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 15px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  margin-bottom: 30px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+nav a:hover {
+  color: #4ade80; /* nice green on hover */
+}
+
+/* Wrapper Card */
+#wrapper {
+  box-sizing: border-box;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  background: #2e2e2e;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+}
+
+/* Heading */
+h1 {
+  margin-bottom: 15px;
+  font-size: 28px;
+  color: #4ade80;
+}
+
+/* Paragraphs */
+p {
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+/* Input & Button */
+#guessField {
+  width: 100%;
+  max-width: 280px;
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: 2px solid #555;
+  margin-top: 15px;
+  text-align: center;
+  outline: none;
+}
+#guessField:focus {
+  border-color: #4ade80;
+}
+
+#subt {
+  display: block;
+  margin: 20px auto 0;
+  background: #4ade80;
+  color: #111;
+  padding: 12px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+#subt:hover {
+  background: #22c55e;
+  transform: translateY(-2px);
+}
+
+/* Results */
+.resultParas {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.guesses, .lastResult {
+  display: inline-block;
+  background: #3a3a3a;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin-left: 5px;
+}
+.lastResult {
+  font-weight: bold;
+  color: #ff4d4d;
+}
+
+.lowOrHi {
+  margin-top: 15px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #facc15; /* yellow feedback */
+}
+#newGame {
+  background-color: #4CAF50;   /* Green */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#newGame:hover {
+  background-color: #45a049;  /* Darker green on hover */
+}
