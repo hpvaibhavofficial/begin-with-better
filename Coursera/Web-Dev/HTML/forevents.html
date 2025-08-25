@@ -7,40 +7,82 @@
   <style>
     body { background:#212121; color:#fff; font-family:sans-serif; }
     h1 { text-align:center; margin:20px 0; }
-    #card { display:flex; justify-content:center; gap:20px; padding:20px; }
-    .card { background:#333; padding:20px; border-radius:12px; width:200px; text-align:center; box-shadow:0 4px 8px rgba(0,0,0,0.5); transition:transform 0.2s; }
-    .card h2 { margin-bottom:10px; font-size:18px; }
-    .card p { font-size:14px; color:#ccc; }
+    #cards { 
+      display:flex; 
+      flex-direction: row;   /* horizontal */
+      justify-content:center; 
+      gap:20px; 
+      padding:20px; 
+      flex-wrap:nowrap;      /* keep in one row */
+      overflow-x:auto;       /* scroll if too wide */
+    }
+    .card { 
+      background:#333; 
+      border-radius:12px; 
+      width:220px; 
+      text-align:center; 
+      box-shadow:0 4px 8px rgba(0,0,0,0.5); 
+      transition:transform 0.2s; 
+      overflow:hidden;
+      flex-shrink:0;         /* prevents shrinking */
+    }
+    .card img { 
+      width:100%; 
+      height:140px; 
+      object-fit:cover; 
+      border-top-left-radius:12px; 
+      border-top-right-radius:12px;
+    }
+    .card h2 { margin:10px 0 5px; font-size:18px; }
+    .card p { font-size:14px; color:#ccc; padding:0 10px 15px; }
+    .card:hover { transform:scale(1.05); cursor:pointer; }
   </style>
 </head>
+
+<!-- //types,timestamp,defaultPrevented, target ,toElement, sourceElement,currentTarget //altkey,ctrlKey,shiftKey,Keycode //event Propogation -->
 <body>
   <h1>Events in Javascript</h1>
-  <div id="card">
+  <div id="cards">
     <div class="card">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600" alt="Nature">
       <h2>Card One</h2>
-      <p>This is the first card.</p>
+      <p>Beautiful nature view.</p>
     </div>
     <div class="card">
+      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=600" alt="City">
       <h2>Card Two</h2>
-      <p>This is the second card.</p>
+      <p>Stunning city landscape.</p>
     </div>
-    <div class="card">
+    <div class="card" id = "cv" >
+      
+        <a href="https://www.google.com" target="_blank"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600" alt="Beach"> </a>
       <h2>Card Three</h2>
-      <p>This is the third card.</p>
+      <p>Relaxing beach vibes.</p>
     </div>
   </div>
 </body>
 
 <script>
-    document.getElementById('card').addEventListener('click',function(){
-        alert(`Card Clicked`)
+//   document.getElementById('cards').addEventListener('click', function(e) {
+//       console.log("Cards Clicked (Outer)")
+//   })
+//   document.querySelector('#cv').addEventListener('click',function(e){
+//     e.preventDefault()
+//     console.log("Cards clicked. (Inner)")
+//     // e.stopPropagation()
+//   })
+
+    document.querySelector('#cards').addEventListener('click',function(e){
+        e.preventDefault()
+        console.log(e.target.parentNode)
+        let remove = e.target.parentNode
+        console.log(e.type)
+        console.log(e.target)
+       console.log(e.currentTarget);
+       console.log(e.altKey);
+       
+        
     })
-
-    //types,timestamp,defaultPrevented, target ,toElement, sourceElement,currentTarget
-    //altkey,ctrlKey,shiftKey,Keycode
-    //event Propogation
-    
-
 
 </script>
 </html>
