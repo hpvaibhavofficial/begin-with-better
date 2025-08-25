@@ -147,6 +147,20 @@ In QuerySelector we can pass
 * id (with #)
 * Attribute ([type = 'text'])
 * combination of selectors (div.container , ul > li)
--> document.querySelectorAll(li:first-child)
+-> document.querySelectorAll(li:first-child)  
+
+Events in JavaScript
+Events in javascript are actions or occurences that happen in browser.THese can be triggered by user interactions or by browser itself.
+
+EventListeners in JavaScript
+EventListener is a function in javascript that waits for a specific event to happen on an element and then execute the code in response.
+Mostly done using addEventListener(event,callback) method 
+
+Event Propagation in js
+Its a way in which events travel among the DOM when an event happens on the element.
+It has two phases 
+-> Capturing Phase -> Travelling of event from root to target element.
+-> Bubbling Phase -> Travelling of event from target to root element.
+
 
 --------------------------------------------------------------------------------------------------
