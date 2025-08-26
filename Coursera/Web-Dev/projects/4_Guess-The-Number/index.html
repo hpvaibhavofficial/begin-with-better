@@ -7,25 +7,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav>
-    <a href="/" aria-current="page">Home</a>
-    <a target="_blank" href="https://www.youtube.com">YouTube Channel</a>
+  <nav class="navbar">
+    <a href="/" aria-current="page">🏠 Home</a>
+    <a target="_blank" href="https://www.youtube.com">🎥 YouTube Channel</a>
   </nav>
     
   <div id="wrapper">
     <h1>Number Guessing Game</h1>
-    <p>Try and guess a random number between <b>1</b> and <b>100</b>.</p>
-    <p>You have <b>10</b> attempts to guess the right number.</p>
+    <p class="subtitle">Try to guess the random number between <b>1</b> and <b>100</b>.</p>
+    <p class="subtitle">You have <b>10</b> attempts. Good luck!</p>
     
     <form class="form">
       <label for="guessField" id="guess">Enter your guess:</label>
-      <input type="text" id="guessField" class="guessField" placeholder="1 - 100">
+      <input type="number" id="guessField" class="guessField" placeholder="1 - 100" min="1" max="100">
       <input type="submit" id="subt" value="Submit Guess" class="guessSubmit">
     </form>
 
     <div class="resultParas">
-      <p>Previous Guesses: <span class="guesses"></span></p>
-      <p>Guesses Remaining: <span class="lastResult">5</span></p>
+      <p><b>Previous Guesses:</b> <span class="guesses">-</span></p>
+      <p><b>Guesses Remaining:</b> <span class="lastResult">10</span></p>
       <p class="lowOrHi"></p>
     </div>
   </div>

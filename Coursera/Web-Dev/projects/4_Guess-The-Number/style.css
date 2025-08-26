@@ -1,137 +1,95 @@
-html {
-  font-family: "Poppins", sans-serif;
-  background-color: #1e1e1e;
-  color: #fff;
+/* General Page Styles */
+body {
   margin: 0;
   padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  color: #f4f4f4;
+  text-align: center;
 }
 
-body {
+/* Navbar */
+.navbar {
+  background-color: #0d1b2a;
+  padding: 12px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: start;
-  min-height: 100vh;
-  padding: 20px;
+  justify-content: center;
+  gap: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
 }
-
-/* Navigation */
-nav {
-  width: 100%;
-  max-width: 900px;
-  display: flex;
-  justify-content: space-between;
-  background: #2a2a2a;
-  padding: 15px 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-  margin-bottom: 30px;
-}
-
-nav a {
+.navbar a {
   color: #fff;
   text-decoration: none;
-  font-weight: 600;
-  transition: color 0.2s;
-}
-nav a:hover {
-  color: #4ade80; /* nice green on hover */
-}
-
-/* Wrapper Card */
-#wrapper {
-  box-sizing: border-box;
-  text-align: center;
-  width: 100%;
-  max-width: 500px;
-  padding: 30px;
-  background: #2e2e2e;
-  border-radius: 16px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
-}
-
-/* Heading */
-h1 {
-  margin-bottom: 15px;
-  font-size: 28px;
-  color: #4ade80;
-}
-
-/* Paragraphs */
-p {
-  font-size: 16px;
-  margin: 8px 0;
-}
-
-/* Input & Button */
-#guessField {
-  width: 100%;
-  max-width: 280px;
-  padding: 12px;
-  font-size: 18px;
-  border-radius: 8px;
-  border: 2px solid #555;
-  margin-top: 15px;
-  text-align: center;
-  outline: none;
-}
-#guessField:focus {
-  border-color: #4ade80;
-}
-
-#subt {
-  display: block;
-  margin: 20px auto 0;
-  background: #4ade80;
-  color: #111;
-  padding: 12px 20px;
-  font-size: 18px;
   font-weight: bold;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.2s;
+  transition: color 0.3s ease;
 }
-#subt:hover {
-  background: #22c55e;
-  transform: translateY(-2px);
+.navbar a:hover {
+  color: #ffcc00;
+}
+
+/* Wrapper (Game Box) */
+#wrapper {
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  margin: 40px auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+/* Headings */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.subtitle {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+/* Form */
+.form {
+  margin: 20px 0;
+}
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.guessField {
+  width: 80%;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.guessSubmit {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+
+}
+.guessSubmit:hover {
+  background-color: #45a049;
 }
 
 /* Results */
 .resultParas {
   margin-top: 20px;
-  font-size: 16px;
+  font-size: 1.1rem;
 }
-
-.guesses, .lastResult {
-  display: inline-block;
-  background: #3a3a3a;
-  padding: 6px 10px;
-  border-radius: 6px;
-  margin-left: 5px;
-}
-.lastResult {
-  font-weight: bold;
-  color: #ff4d4d;
-}
-
 .lowOrHi {
-  margin-top: 15px;
-  font-weight: 600;
-  font-size: 18px;
-  color: #facc15; /* yellow feedback */
-}
-#newGame {
-  background-color: #4CAF50;   /* Green */
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#newGame:hover {
-  background-color: #45a049;  /* Darker green on hover */
+  margin-top: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffcc00;
 }

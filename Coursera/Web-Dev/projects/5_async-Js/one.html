@@ -32,7 +32,6 @@
   </div>
 
   <script>
-    let x =null;
     const timer  = document.querySelector('#timerBox')
 
     function f1() {
@@ -41,22 +40,13 @@
     }
 
 
-    document.getElementById("start").addEventListener("click", function (e) {
-      if(x ==null){
-          f1();
-          x = setInterval(f1,1000);
-          console.log("started",x);
-          
-      }
+    let x =null;
+    document.getElementById("start").addEventListener("click", () => {
+      x = setInterval(f1,1000)
     });
 
-    document.getElementById("stop").addEventListener("click", function (e) {
-        if(x!=null){
-            clearInterval(x);
-            x=null;
-            timer.innerText = "00:00:00";
-            console.log("stopped",x);
-        }
+    document.getElementById("stop").addEventListener("click",()=> {clearInterval(x)
+      timer.textContent = "00:00:00";
     });
   </script>
 </body>
