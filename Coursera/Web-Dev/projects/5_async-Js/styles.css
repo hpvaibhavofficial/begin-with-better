@@ -1,0 +1,65 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Full page center */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #1a1a1a, #333);
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Project container */
+.project {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Key pressed text */
+.key h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background: #222;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+th, td {
+  padding: 12px 16px;
+  border: 1px solid #444;
+}
+
+th {
+  background-color: #333;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+td {
+  background-color: #2a2a2a;
+}
+
+tr:hover td {
+  background-color: #3a3a3a;
+}
