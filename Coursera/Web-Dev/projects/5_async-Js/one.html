@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events in JavaScript</title>
+</head>
+<body style="background-color: #212121; color: #fff; text-align: center; font-family: Arial, sans-serif;">
+
+  <h1>Lets Learn Something New</h1>
+
+  <div id="timerBox" 
+       style="width: 200px; height: 60px; background-color: orangered; color: antiquewhite; 
+              margin: 20px auto; border-radius: 20px; display: flex; align-items: center; 
+              justify-content: center; font-size: 1.5rem; font-weight: bold;">
+    00:00:00
+  </div>
+
+  <div style="margin-top: 20px;">
+    <button id="start" 
+            style="width: 120px; height: 40px; margin: 10px; border: none; border-radius: 8px; 
+                   font-size: 1rem; font-weight: bold; cursor: pointer; 
+                   background-color: #4CAF50; color: white;">
+      ▶ Start
+    </button>
+    <button id="stop" 
+            style="width: 120px; height: 40px; margin: 10px; border: none; border-radius: 8px; 
+                   font-size: 1rem; font-weight: bold; cursor: pointer; 
+                   background-color: #ff1100; color: white;">
+      ⏹ Stop
+    </button>
+  </div>
+
+  <script>
+    let x =null;
+    const timer  = document.querySelector('#timerBox')
+
+    function f1() {
+      const date = new Date();
+      document.getElementById("timerBox").textContent = date.toLocaleTimeString();
+    }
+
+
+    document.getElementById("start").addEventListener("click", function (e) {
+      if(x ==null){
+          f1();
+          x = setInterval(f1,1000);
+          console.log("started",x);
+          
+      }
+    });
+
+    document.getElementById("stop").addEventListener("click", function (e) {
+        if(x!=null){
+            clearInterval(x);
+            x=null;
+            timer.innerText = "00:00:00";
+            console.log("stopped",x);
+        }
+    });
+  </script>
+</body>
+</html>

@@ -34,7 +34,7 @@ function validateNum(guess){
         alert('Please enter a valid number between 1 to 100')
     } else{
         prevGuess.push(guess)
-        if(numGuess === 11){
+        if(numGuess === 6){
             displayMessage(`Game Over.Random Number was ${randomNum}`)
             endGame()
         } else{
@@ -60,7 +60,7 @@ function displayGuess(guess){
     userInput.value = ''
     guessSlot.innerHTML += `${guess} , `
     numGuess++
-    remaining.innerHTML = `${11 - numGuess}`
+    remaining.innerHTML = `${6 - numGuess}`
 }
 
 function displayMessage(message){
@@ -86,7 +86,7 @@ function startGame(){
         prevGuess = []
         numGuess = 1
         msg.innerHTML = ''
-        remaining.innerHTML=`${11 - numGuess}`
+        remaining.innerHTML=`${5 - numGuess}`
         userInput.removeAttribute('disabled')
         guessSlot.innerHTML = ''
         startOver.removeChild(p);
