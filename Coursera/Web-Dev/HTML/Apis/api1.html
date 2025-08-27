@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apis and its about</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <h1 style="text-align: center;">V8 Engine and XHR api</h1>
+    
+</body>
+<script>
+    const api = "https://api.github.com/users/hpvaibhavofficial"
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET',api); 
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState)
+        if(xhr.readyState === 4 ){
+            //console.log(this.responseText);
+            console.log(typeof data);
+            const data = JSON.parse(this.responseText);
+            console.log(data.followers);
+            
+
+            
+        }
+    }
+    xhr.send(); 
+    
+    
+
+</script>
+</html>

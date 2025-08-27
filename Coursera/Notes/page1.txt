@@ -162,6 +162,8 @@ It has two phases
 -> Capturing Phase -> Travelling of event from root to target element. //true 
 -> Bubbling Phase -> Travelling of event from target to root element. //false
 
+Api
+Application Programming Interface defines some rules and protocols that allows two softeare applications to communicate with each other.
 
 
 --------------------------------------------------------------------------------------------------
