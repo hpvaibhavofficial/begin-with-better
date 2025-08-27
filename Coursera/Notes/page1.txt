@@ -164,6 +164,12 @@ It has two phases
 
 Api
 Application Programming Interface defines some rules and protocols that allows two softeare applications to communicate with each other.
+In javascript we used to use XMLHttpRequest obj to send and recieve response of an api ...but now we have fetch keyword.
 
-
+Promises in JavaScript
+Promises are object that represents the eventual completion of an asynchronous operation.
+A promise has 3 states : (Resolve : Reject)
+ -> pending
+ -> fulfilled 
+ -> reject
 --------------------------------------------------------------------------------------------------
