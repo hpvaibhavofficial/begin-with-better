@@ -173,6 +173,17 @@ A promise has 3 states : (Resolve : Reject)
  -> fulfilled 
  -> reject
 
+Constructor Functions in Js
+A function in javascript which is used with new keyword basically used to create and initialize objects.
 
+Work of new keyword
+-> creates an empty object {}
+-> Sets this to that new object
+-> runs the body of function and add properties of body to it.
+-> returns the current this
 
+Prototypes in javascript
+Prototype is a special object in js which every object or function already have.They use it to inherit some of its properties.
+Every function in javascript have a property called .prototype 
+Every object in javascript have an internal hidden property[[Prototype]] 
 --------------------------------------------------------------------------------------------------
