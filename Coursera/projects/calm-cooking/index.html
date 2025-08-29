@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calm Cooking | Dashboard</title>
+  <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+  <!-- 🌐 Header / Navbar -->
+  <header class="navbar">
+    <div class="logo">🍳 Calm Cooking</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Recipes</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#" class="btn">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 🎯 Hero Section -->
+  <section class="hero">
+    <h1>Cook with Calm, Eat with Joy</h1>
+    <p>Discover thousands of recipes, from quick meals to gourmet delights.</p>
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Search recipes...">
+      <button id="search-btn">Search</button>
+    </div>
+  </section>
+
+  <!-- ⭐ Featured Recipes -->
+  <section class="featured">
+    <h2>Featured Recipes</h2>
+    <div class="card-grid">
+      <div class="card" data-recipe="spaghetti">
+        <img src="https://via.placeholder.com/300x200" alt="Recipe">
+        <h3>Spaghetti Bolognese</h3>
+      </div>
+      <div class="card" data-recipe="chicken">
+        <img src="https://via.placeholder.com/300x200" alt="Recipe">
+        <h3>Grilled Chicken</h3>
+      </div>
+      <div class="card" data-recipe="salad">
+        <img src="https://via.placeholder.com/300x200" alt="Recipe">
+        <h3>Vegan Salad</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🍲 Categories -->
+  <section class="categories">
+    <h2>Explore by Categories</h2>
+    <div class="card-grid">
+      <div class="card" data-category="chicken">
+        <img src="https://via.placeholder.com/300x200" alt="Chicken">
+        <h3>Chicken</h3>
+      </div>
+      <div class="card" data-category="pasta">
+        <img src="https://via.placeholder.com/300x200" alt="Pasta">
+        <h3>Pasta</h3>
+      </div>
+      <div class="card" data-category="dessert">
+        <img src="https://via.placeholder.com/300x200" alt="Dessert">
+        <h3>Dessert</h3>
+      </div>
+      <div class="card" data-category="seafood">
+        <img src="https://via.placeholder.com/300x200" alt="Seafood">
+        <h3>Seafood</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🔍 Search Results (hidden by default) -->
+  <section id="search-results" class="hidden">
+    <h2>Search Results</h2>
+    <div id="results-grid" class="card-grid">
+      <!-- Recipe cards will be injected dynamically -->
+    </div>
+    <p id="no-results" class="hidden">No recipes found. Try another search 🍳</p>
+  </section>
+
+  <!-- 📩 Newsletter Signup -->
+  <section class="newsletter">
+    <h2>Stay Updated</h2>
+    <p>Subscribe to receive new recipes weekly!</p>
+    <form>
+      <input type="email" placeholder="Enter your email">
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- ⚓ Footer -->
+  <footer>
+    <p>&copy; 2025 Calm Cooking. All rights reserved.</p>
+  </footer>
+
+  <!-- 📜 JavaScript -->
+  <!-- <script>
+    // Add click events to featured recipe cards
+    document.querySelectorAll('.featured .card').forEach(card => {
+      card.addEventListener('click', () => {
+        const recipe = card.getAttribute('data-recipe');
+        alert(`You clicked on ${recipe}! (Later this will open recipe details)`);
+      });
+    });
+
+    // Add click events to category cards
+    document.querySelectorAll('.categories .card').forEach(card => {
+      card.addEventListener('click', () => {
+        const category = card.getAttribute('data-category');
+        alert(`You selected ${category} category! (Later we’ll fetch recipes for this category)`);
+      });
+    });
+  </script> -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,20 +1,10 @@
-// const prom1 = new Promise(function(resolve,reject){
-//     //async task
-//     setTimeout(function(){
-//         console.log("Async task is here");
-//         resolve()
-//     },1000);
-// })
-
-// prom1.then(function(){
-//     console.log("Promise Consumed");
-// })
-
-const promise1 = new Promise(function(resolve,reject){
-    resolve({username : "vaibahv" , email : "vb@exa.com" , age : 22})
-})
-
-promise1.then((data) => {
-    console.log(data);
-    
-})
+function Car(make, model, year) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+}
+const auto = new Car("Honda", "Accord", 1998);
+console.log(auto instanceof Car);
+// Expected output: true
+console.log(auto instanceof Object);
+// Expected output: true

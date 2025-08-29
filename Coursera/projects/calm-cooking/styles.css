@@ -1,0 +1,221 @@
+/* 🌐 Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #fafafa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* 🎯 Navbar */
+/* 🎯 Navbar */
+.navbar {
+  background: #ff7b00;   /* Orange navbar */
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #fff;   /* White logo text */
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #fff;    /* White menu items */
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.navbar a:hover {
+  opacity: 0.8;
+}
+
+.navbar .btn {
+  background: #fff;
+  color: #ff7b00 !important;  /* Orange text inside white button */
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.navbar .btn:hover {
+  background: #f5f5f5;
+}
+
+
+/* 🌟 Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url("https://images.unsplash.com/photo-1504674900247-0877df9cc836") center/cover no-repeat;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.search-bar input {
+  padding: 0.8rem;
+  width: 250px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+.search-bar button {
+  padding: 0.8rem 1.2rem;
+  background: #ff6347;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-bar button:hover {
+  background: #e5533d;
+}
+
+/* ⭐ Sections */
+section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #444;
+}
+
+/* 🃏 Card Grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card h3 {
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* 🔍 Search Results */
+#search-results {
+  display: none; /* hidden initially */
+}
+
+#search-results.active {
+  display: block;
+}
+
+/* 📩 Newsletter */
+/* 📩 Newsletter Section */
+.newsletter {
+  background: #ff7b00;   /* Orange background */
+  color: #fff;           /* White text */
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.newsletter h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #fff;  /* White heading */
+}
+
+.newsletter p {
+  margin-bottom: 1.5rem;
+  color: #f0f0f0; /* Slightly lighter white for paragraph */
+}
+
+.newsletter form {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.newsletter input {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  width: 250px;
+}
+
+.newsletter button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+  color: #ff7b00;   /* Orange text */
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.newsletter button:hover {
+  background: #f5f5f5;
+}
+
+
+/* ⚓ Footer */
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}

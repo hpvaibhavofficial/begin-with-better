@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Recipe Finder</h1>
+  <input type="text" id="search-input" placeholder="Search recipes...">
+  <button id="search-btn">Search</button>
+
+  <div id="results" class="results"></div>
+
+  <button id="logout-btn">Logout</button>
+
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="recipes.js"></script>
+</body>
+</html>
