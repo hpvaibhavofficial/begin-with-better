@@ -1,0 +1,23 @@
+.app {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.card {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 15px;
+  margin: 10px 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.card p {
+  margin: 0;
+  color: #555;
+}
