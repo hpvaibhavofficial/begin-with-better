@@ -1,0 +1,16 @@
+Initialization of a Project
+
+1. npm init -y → initialize project
+2. Create folders: public, src → inside src: models, controllers, middlewares, utils, db, routes
+3. Create files: src/index.js, src/app.js, src/constants.js
+4. Create .env file at root → add PORT and MONGODB_URI
+5. Install dependencies → express, mongoose, dotenv
+6. Install dev dependencies → nodemon, prettier
+7. Add "dev": "nodemon src/index.js" in package.json scripts
+8. Create .prettierrc file → configure tab/spacing rules
+9. In constants.js → export DB_NAME
+10. In db/index.js → import mongoose, connect with process.env.MONGODB_URI + DB_NAME, export dbConnect
+11. In index.js → import dotenv, call dotenv.config(), import dbConnect, call dbConnect()
+12. Run project with npm run dev
+
+
