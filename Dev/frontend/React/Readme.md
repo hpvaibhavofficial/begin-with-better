@@ -1,8 +1,8 @@
 # React 
-React is a javascript library which is used to create User Interfaces and mostly to create single page applications.
-
-It was created by Facebook. <br>
+React is a javascript library which is used to create User Interfaces and mostly to create single page applications.It was created by Facebook.
 React basically used component based architecture which helps it in building fast, dynamic and complex UIs in a stuctured and reusable way.
+
+React uses JSX (javascript XML) extension which allows us to write HTML code in javascript files.
 
 ## Setting Up Environment
 Initially we used to use CRA  to create React app which is now outdated.  
@@ -18,6 +18,7 @@ npm create vite@latest app name
 ```
 
 ## Components based Architecture
+React uses a component Based architecture which means our UI is broken into small independent and reusable blocks known as components.
 
 
 
