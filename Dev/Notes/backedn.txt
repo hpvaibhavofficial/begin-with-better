@@ -13,4 +13,15 @@ Initialization of a Project
 11. In index.js → import dotenv, call dotenv.config(), import dbConnect, call dbConnect()
 12. Run project with npm run dev
 
+Then we started putting files like we need 
 
+Jwt -> json web token is used for secure data transmission between the client and the server , mainly for authentication and authorization.
+has three parts
+-> header
+-> Payload
+-> signature
+
+installed via npm i jsonwebtoken
+
+JWT is NOT for encrypting data, but for securely transmitting claims with integrity verification.
+For securely storing passwords, we use Mongoose pre-save middleware hooks combined with bcrypt hashing.

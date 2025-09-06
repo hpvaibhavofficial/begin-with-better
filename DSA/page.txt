@@ -1,0 +1,11 @@
+Bipartite Graph
+A type of graph whose nodes can be divided into two disjoint sets U and V such that 
+-> Every node connects a vertex in V to vertex IN U
+-> No edge exist between vertices in same set .
+
+Finding a Graph is Bipartite or Not .. ?
+We can color a graph and if no two adjacent noedes have same color after coloring then graph is known as Bipartite.
+Also a Linear Graph is always Bipartite.
+A Graph having even length cycle is also a Bipartite Graph.
+
+We can check it by BFS / DFS both.
