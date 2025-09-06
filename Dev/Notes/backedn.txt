@@ -24,4 +24,8 @@ has three parts
 installed via npm i jsonwebtoken
 
 JWT is NOT for encrypting data, but for securely transmitting claims with integrity verification.
-For securely storing passwords, we use Mongoose pre-save middleware hooks combined with bcrypt hashing.
+For securely storing passwords, we use Mongoose pref-save middleware hooks combined with bcrypt hashing.
+
+
+
+JWT is a bearer token.
