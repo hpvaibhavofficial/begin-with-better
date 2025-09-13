@@ -1,0 +1,8 @@
+Java is widely used as a server-side programming language in enterprise applications, web development, and microservices.
+
+Servelet : Java Servelets are java classes that runs on a server and handles client requests and responses.They basically handles behind the scene logics.
+
+Java Servelet supports all kind of protocols but primiraly it is most often used with Http protocols (a set of rules for web communication such as requesting and delivering pages).
+
+JSP : Java Server Pages used to build dynamic web pages by embedding the Java code to HTML.
+A  Jsp is slower than servelet because first step in JSP life cycle is to convert the JSP code to servelet code and then it compiles. 
