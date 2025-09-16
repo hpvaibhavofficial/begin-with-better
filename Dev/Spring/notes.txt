@@ -6,3 +6,4 @@ Java Servelet supports all kind of protocols but primiraly it is most often used
 
 JSP : Java Server Pages used to build dynamic web pages by embedding the Java code to HTML.
 A  Jsp is slower than servelet because first step in JSP life cycle is to convert the JSP code to servelet code and then it compiles. 
+JSP only accepts HTTP/HTTPs requests.
