@@ -23,14 +23,30 @@ Initially, enterprise Java used Servlets and JSPs, which mixed business logic wi
 
 
 MVC -> Model View Controller 
-Model ->  Model represents the data and business logic.It is responsible for defining how the data is stored, retrieved and manipulated.
-In spring Model basically includes the entity classes, DAO or Repository layer and business logic or servies.
+Model ->  Model represents the data and business logic. It is responsible for defining how the data is stored, retrieved and manipulated.
+In spring Model basically includes the entity classes, DAO or Repository layer and business logic or services.
 
-View -> View is responsible for presenting the data to user screen. It basically displays the info given by controller usually a web page or UI component.It does not contain any business logic. It handles the presentation part.
+View -> View is responsible for presenting the data to user screen. It basically displays the info given by controller usually a web page or UI component. It does not contain any business logic. It handles the presentation part.
 
 Controller -> Controller basically is responsible for handling user requests, processing input and coordinating between the model and view. It acts as a bridge between view and model. A client sends request and controller sends that request to service / model and then it sends response to user.
 
 
 Application Properties: This is a configuration file where you define your project's settings, such as server port numbers, database connections, or other application-specific properties.
 
-POM: Project Object Model This file have all the external dependencies, plugins, build settings
+POM: Project Object Model This file have all the external dependencies, plugins, build settings.It also contains metadata of project like project artifact id , group and version.
+
+
+A model class in java is a blueprint of all essential details of a particular product.
+
+
+@Controller is annotation which is used to mark a class as a Controller. It tells spring that this will handle web requests.
+@RequestMapping is an annotation used in spring to map HTTP requests to some handler methods or classes.
+@ResponseBody is a spring annotation used on a controller method which indicates that what should be written directly to HTTP response body.
+@PathVariable is a spring annotation used to extract the dynamic value from URL path and use them in our methods as a parameter.
+
+
+If creating a view with jsp we need to add some dependencies to pom.xml which includes tomcat-embed-jasper
+tomcat is a server where our app runs and jasper is the compiler that is used to convert jsp file to java servelets. so that they can be run on browser by converting servelest to byte codes.
+
+Thymeleaf -> is a java template engine used to create dynamic web pages in spring.
+
