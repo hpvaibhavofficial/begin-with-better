@@ -1,13 +1,13 @@
-package com.coffee.crypto;
+package com.quickstart.ecommerce;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CupLivApplication {
+public class QuickCartApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CupLivApplication.class, args);
+		SpringApplication.run(QuickCartApplication.class, args);
 	}
 
 }

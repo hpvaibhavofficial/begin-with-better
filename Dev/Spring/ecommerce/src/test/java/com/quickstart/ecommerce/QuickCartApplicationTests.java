@@ -1,10 +1,10 @@
-package com.coffee.crypto;
+package com.quickstart.ecommerce;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CupLivApplicationTests {
+class QuickCartApplicationTests {
 
 	@Test
 	void contextLoads() {
