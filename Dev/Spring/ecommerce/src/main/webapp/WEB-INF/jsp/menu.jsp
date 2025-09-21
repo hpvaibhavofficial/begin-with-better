@@ -27,7 +27,9 @@
                     <td>${p.name}</td>
                     <td>$${p.price}</td>
                 </tr>
+                
             </c:forEach>
         </table>
     </body>
 </html>
+

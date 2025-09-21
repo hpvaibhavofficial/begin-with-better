@@ -18,11 +18,16 @@
                 <th>Name</th>
                 <th>Price</th>
             </tr>
-            <tr th:each="product : ${pl}">
+            <tr th:each="product : ${products}">
                 <td th:text="${product.id}"></td>
                 <td th:text="${product.name}"></td>
                 <td th:text="${product.price}"></td>
+                
             </tr>
         </table>
+        <br>
+        <a th:href="@{/add}"><button type="button">Add New Product</button> </a>
+    
     </body>
+	
 </html>

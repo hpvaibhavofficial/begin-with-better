@@ -38,3 +38,70 @@ tr:hover {
     background-color: #f1f1f1;
     cursor: pointer;
 }
+
+/* Add New Product Button */
+button {
+    background-color: #6272a4;  /* Matches table header */
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px; /* spacing from table */
+}
+
+button:hover {
+    background-color: #50507a; /* Darker shade on hover */
+    transform: translateY(-2px);
+}
+/* Form Container */
+form {
+    width: 50%;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* Form Labels */
+form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #5a5a5a;
+}
+
+/* Form Inputs */
+form input[type="text"],
+form input[type="number"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Submit Button */
+form button {
+    background-color: #6272a4;  /* Matches table header */
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+    background-color: #50507a; /* Darker shade on hover */
+    transform: translateY(-2px);
+}
+
+
