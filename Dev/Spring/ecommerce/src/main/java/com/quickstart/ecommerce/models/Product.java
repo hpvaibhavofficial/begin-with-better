@@ -1,47 +1,46 @@
 package com.quickstart.ecommerce.models;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+
+@Entity
 public class Product {
 	
-	private int id;
-	private String name;
-	private double price;
-	
-	public Product(int id, String name, double price) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.price = price;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-	public int getId() {
-		return id;
-	}
+    @Column(name="product_name",length = 50,nullable = false,unique = false)
+    private String name;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    
+    private Double price;
 
-	public String getName() {
-		return name;
-	}
+    // ✅ No-args constructor is REQUIRED for Spring binding
+    public Product() {}
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public Product(Integer id, String name, Double price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
 
-	@Override
-	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", price=" + price + "]";
-	}
+    // getters & setters
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
 
-	public double getPrice() {
-		return price;
-	}
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-	public void setPrice(double price) {
-		this.price = price;
-	}
-	
-	
-	
+    public Double getPrice() { return price; }
+    public void setPrice(Double price) { this.price = price; }
+
+    @Override
+    public String toString() {
+        return "Product [id=" + id + ", name=" + name + ", price=" + price + "]";
+    }
 }

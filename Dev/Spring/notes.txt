@@ -46,7 +46,37 @@ A model class in java is a blueprint of all essential details of a particular pr
 
 
 If creating a view with jsp we need to add some dependencies to pom.xml which includes tomcat-embed-jasper
-tomcat is a server where our app runs and jasper is the compiler that is used to convert jsp file to java servelets. so that they can be run on browser by converting servelest to byte codes.
+tomcat is a server where our app runs and jasper is the compiler that is used to convert jsp file to java servlets. so that they can be run on browser by converting servlets to byte codes.
 
 Thymeleaf -> is a java template engine used to create dynamic web pages in spring.
+
+Hibernate : is a popular Java framework used for Object relational mapping (ORM).It helps by mapping classes to Tables and manages the database operations without writing complex database queries.
+It maps the classes name with table and object with the rows.
+
+In hibernate we need to manage sessions. A session is the connection to database which manages the persistence of entities.Then session.begintransaction() session.persist(obj)  tx.commit() session.close()
+
+
+JPA : is a java specification that makes it easy to work with relational databases. It defines some rules that how objects are mapped to database tables and also manages their persistence. It provides a set of annotations and interfaces to perform crud operations in easier manner but it requires implementation like hibernate to actually interact to database.
+
+
+Basic Interfaces 
+EntityTransaction -> mANAGES transactions in JPA (begin, commit,rollback)
+EntityManagerFactory -> interface which create instances of EMF
+EntityManager - > interface to interact with persistant context.
+Query / TypedQuery -> JPQL, Native Queries.
+
+Annotations
+@Entity
+@Table -> optional used when we need a specified tablename
+@Id -> mars field as a primar key of entity.
+@GeneratedValue -> Specifies key gen strategy.
+@Column -> optional marks a specific column name
+@Transient -> to makea field transient
+
+
+ORM (Object-Relational Mapping) is a technique that maps Java objects to database tables, allowing developers to perform database operations using objects instead of SQL. It simplifies CRUD operations, manages relationships, and keeps the object model in sync with the database.
+
+
+
+
 
