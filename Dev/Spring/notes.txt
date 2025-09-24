@@ -62,7 +62,7 @@ JPA : is a java specification that makes it easy to work with relational databas
 Basic Interfaces 
 EntityTransaction -> mANAGES transactions in JPA (begin, commit,rollback)
 EntityManagerFactory -> interface which create instances of EMF
-EntityManager - > interface to interact with persistant context.
+EntityManager - > interface to interact with persistent context.
 Query / TypedQuery -> JPQL, Native Queries.
 
 Annotations
@@ -77,6 +77,29 @@ Annotations
 ORM (Object-Relational Mapping) is a technique that maps Java objects to database tables, allowing developers to perform database operations using objects instead of SQL. It simplifies CRUD operations, manages relationships, and keeps the object model in sync with the database.
 
 
+Spring boot is a Java Framework which is built on the top of Spring Framework and it simplifies the development of standalone ,production grade apps by providing auto configuration and reducing boilerplate code.
+
+It provides started dependencies , auto config and embedded servers.
+
+Bean -> A bean is an object which is created and managed by spring ioc or spring application context. Its not created by new keyword.
+
+@Component -> an annotation which marks a class as a bean.
+
+REST → REST stands for Representational State Transfer.
+REST is an architectural style that defines a set of rules for communication between applications over HTTP in a standardized way.
+
+HTTP is a stateless protocol, meaning each request is independent and does not rely on previous requests. Every request must contain all the necessary information (like resource identifiers or authentication data), which makes REST services scalable and easier to maintain.
+
+Restful service take request from client and gets response from server.
+
+@RestController -> is a special annotation in spring that marks a class as RestController.
+It is used to create RESTfull services that returns data directly to client in JSON format.It combines the functionality of @Controller and @ResponseBody
 
 
+Spring Security
+Spring security is a framework used for authentication and authorization in spring applications.
+It protects the app from common security threats.
 
+
+Authentication : verify who the user is
+Authorization : determine what user is allowed to do 

@@ -5,7 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import com.quickstart.ecommerce.models.Product;
 import com.quickstart.ecommerce.service.ProductService;
 
 
@@ -22,6 +25,39 @@ public class ProductController {
 		return "menu";
 	}
 
+	@GetMapping("/showFormUpdate/{id}")
+	public String showFormUpdate(@PathVariable int id , Model model) {
+		Product product = productService.getProductById(id);
+		model.addAttribute("product",product);
+		return "updated";
+	}
+	
+	@PostMapping(value = {"/saveProduct","/addNewProduct"})
+	public String saveProduct(Product product) {
+		productService.saveProduct(product);
+		return "redirect:/";
+
+	}
+	
+	@GetMapping("/deleteProduct/{id}")
+	public String deleteProduct(@PathVariable int id) {
+		productService.deleteProduct(id);
+		return "redirect:/";
+	}
+	
+//	@PostMapping("")
+//	public String addNewProduct(Product product) {
+//		productService.saveProduct(product);
+//		return "redirect:/";
+//	}
+//	
+	@GetMapping("/showFormAdd")
+	public String showForm() {
+		return "form";
+	}
+	
+	
+	
 	
 }
 

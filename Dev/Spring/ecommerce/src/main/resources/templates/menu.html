@@ -13,21 +13,28 @@
             Our Menu
         </h2>
         <table>
+        <thead>
             <tr>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Price</th>
+                <th>Actions</th>
             </tr>
-            <tr th:each="product : ${products}">
+        </thead>
+        <tbody>
+        	<tr th:each="product : ${products}">
                 <td th:text="${product.id}"></td>
                 <td th:text="${product.name}"></td>
                 <td th:text="${product.price}"></td>
-                
+                <td>
+                	<a th:href="@{/showFormUpdate/{id}(id=${product.id})}" class="btn-update">Update</a> 
+                	<a th:href="@{/deleteProduct/{id}(id=${product.id})}" class="btn-delete">Delete</a>
+                </td>
             </tr>
+        </tbody>
         </table>
-        <br>
-        <a th:href="@{/add}"><button type="button">Add New Product</button> </a>
-    
-    </body>
-	
+        
+        <a th:href="@{/showFormAdd}" class="btn-add">Add New Product</a>
+
+	</body>
 </html>
