@@ -1,142 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-
-    <style>
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f7fa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .container {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            color: #333;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #555;
-            font-weight: 600;
-        }
-
-        input[type="email"],
-        input[type="password"] {
-            width: 100%;
-            padding: 0.75rem;
-            margin-bottom: 1.2rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            transition: border 0.2s ease;
-        }
-
-        input[type="email"]:focus,
-        input[type="password"]:focus {
-            border-color: #4a90e2;
-            outline: none;
-        }
-
-        button {
-            width: 100%;
-            padding: 0.75rem;
-            background-color: #4a90e2;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #357ab8;
-        }
-
-        .error {
-            color: red;
-            margin-bottom: 1rem;
-            text-align: center;
-            font-size: 0.95rem;
-        }
-
-        p {
-            text-align: center;
-            margin-top: 1rem;
-            font-size: 0.95rem;
-        }
-
-        a {
-            color: #4a90e2;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
-
-    <script>
-        function validateLoginForm() {
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value.trim();
-            const errorMsg = document.getElementById('error-msg');
-            errorMsg.textContent = '';
-
-            if (!email || !password) {
-                errorMsg.textContent = 'Please fill in all fields.';
-                return false;
-            }
-
-            // Basic email validation
-            const emailPattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
-            if (!emailPattern.test(email)) {
-                errorMsg.textContent = 'Please enter a valid email address.';
-                return false;
-            }
-
-            return true; // Allow form submission
-        }
-    </script>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Login</h2>
-        <div class="error" id="error-msg"></div>
-        <form onsubmit="return validateLoginForm()" action="/login" method="POST">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+<div class="container">
+    <h2>Login</h2>
+    <form th:action="@{/login}" method="post">
+        <label for="username">Username:</label>
+        <input type="text" name="username" required /><br/>
 
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required /><br/>
 
-            <button type="submit">Login</button>
-        </form>
-        <p>Don't have an account? <a href="/register">Register</a></p>
-    </div>
+        <input type="submit" value="Login" class="btn"/>
+    </form>
+    <p>Don't have an account? <a th:href="@{/register}" >Register here</a></p>
+</div>
 </body>
 </html>

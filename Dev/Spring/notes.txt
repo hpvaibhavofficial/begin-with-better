@@ -103,3 +103,7 @@ It protects the app from common security threats.
 
 Authentication : verify who the user is
 Authorization : determine what user is allowed to do 
+
+Role Based Security
+@PreAuthorise("hasRole('User')") -> enables only users to access that endpoint
+@PostAuthorise()
