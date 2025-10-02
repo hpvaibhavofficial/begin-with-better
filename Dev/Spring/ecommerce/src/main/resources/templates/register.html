@@ -1,27 +1,88 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .register-container {
+            background-color: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            width: 100%;
+            cursor: pointer;
+        }
+        .login-btn {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+        }
+        .register-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+        p.message {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
+
+<div class="register-container">
     <h2>Register</h2>
-    <form th:action="@{/register}" th:object="${user}" method="post">
-        <label for="username">Username:</label>
-        <input type="text" th:field="*{username}" required /><br/>
-
-        <label for="password">Password:</label>
-        <input type="password" th:field="*{password}" required /><br/>
-
-        <label for="role">Role:</label>
-        <input type="text" th:field="*{role}" placeholder="USER" required /><br/>
-
-        <input type="submit" value="Register" class="btn"/>
-    </form>
-    <p>Already have an account? <a th:href="@{/login}" class="login-btn">Login here</a></p>
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button class="register-btn" onclick="registerUser()">Register</button>
+    <button class="login-btn" onclick="goToLogin()">Go to Login</button>
+    <p class="message" id="message"></p>
 </div>
+
+<script>
+    function registerUser() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        fetch('/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        })
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('message').innerText = data;
+        })
+        .catch(error => {
+            document.getElementById('message').innerText = 'Error: ' + error;
+        });
+    }
+
+    function goToLogin() {
+        window.location.href = '/login';
+    }
+</script>
+
 </body>
 </html>

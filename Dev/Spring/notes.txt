@@ -33,7 +33,7 @@ Controller -> Controller basically is responsible for handling user requests, pr
 
 Application Properties: This is a configuration file where you define your project's settings, such as server port numbers, database connections, or other application-specific properties.
 
-POM: Project Object Model This file have all the external dependencies, plugins, build settings.It also contains metadata of project like project artifact id , group and version.
+POM: Project Object Model This file have all the external dependencies, plugins, build settings. It also contains metadata of project like project artifact id , group and version.
 
 
 A model class in java is a blueprint of all essential details of a particular product.
@@ -103,7 +103,82 @@ It protects the app from common security threats.
 
 Authentication : verify who the user is
 Authorization : determine what user is allowed to do 
+After adding security dependency into Spring Boot, when we run our application, then it automatically redirects to login page as per the default implementation of Security Config, which provides its default login form and in build logs we can see password also. Also, if we provide password and username in application.properties, then we can directly login with those credentials.
+
+How to apply custom Spring Security
+-> To apply Spring Security with custom setting, we need to follow some steps... Firstly, we need to create a SecurityConfig class under a config package. In this class, we need to implement filter chains by defining a method securityFilterChain whose return type is an instance of SecurityFilterChain, which is an interface under security.web default package. In its arguments, we need to provide HttpSecurity object.
+
+Then we need to define the function which goes like http.authorizeHttpRequests() then lambda function in it, which will match requests using requestMatchers() in which we need to provide allowed URLs, then .permitAll. Then we need to give .anyRequest().authenticated, which means other than matching endpoints all need a login to continue.
+
+Then we can use http.formLogin() and in the args we can use a lambda for form like form.loginPage(), form.defaultSuccessUrl(), .permitAll(). Then http.logout() and in args we need to give logout.permitAll().
+
+This filter chain defines a set of some security rules that need to be followed during authentication. Then our authentication manager does not know user details of a person stored. So it calls UserDetailsService, which is an interface and contains a method loadUserByUsername(). It is by default implemented by InMemoryUserDetailsManager class, which implements that method and creates user with the help of method createUser.
+
+This all happens in memory by default. Also, this class creates new password in memory every time app restarts.
+
+We can use it in two ways:
+-> In-memory user
+-> By connecting external database
+
+
+For inmemory user we can do it in multiple ways we can either use can create a function which returns UserDetailsService instance with the help of InmemoryUserDetailsManager constructor which takes object of UserDetails as a parameter.
+
+or we can create a class UserDetails which must implements UserDetailsService interface in which we can take a HashMap to store users and that class must override the loaduser by username method.  or we can also take requests and map them with inmemoryusermanager
+
+For using a database spring security we can create a custom UserService class in which we need to implement the userdetailsservie  interface method loadusrbyUsername. 
 
 Role Based Security
 @PreAuthorise("hasRole('User')") -> enables only users to access that endpoint
 @PostAuthorise()
+
+JWT -> JSON Web Token
+Jwt is an openindustry standard to securely transmit information between two parties as a JSON object.
+
+Its a long string divided into 3 parts:
+
+Header : Info about the algo used and token type
+Payload : Data transferred usually the _id
+Signature : Ensures data is secure
+
+Normal AUthentication in spring boot does not have advance featues.
+It does not have expiration time. If we have authorized someone to our system and we wanna take away auth then there is no way by default. NORMAL auth can be decoded easily.
+
+
+
+Filter Chain is a design pattern by which we can create different filters.
+
+Requests comes from Tomcat servers and then it went through filter chain . filter chain have different filters like corsfilter , char encoding filter which checks requests fpffernt works
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

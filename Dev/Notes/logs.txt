@@ -19,3 +19,136 @@ scala> dis.foreach(println)
 3
 6
 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+CHapter - 4
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /___/ .__/\_,_/_/ /_/\_\   version 3.5.6
+      /_/
+
+Using Scala version 2.12.18 (Java HotSpot(TM) 64-Bit Server VM, Java 21.0.7)
+Type in expressions to have them evaluated.
+Type :help for more information.
+
+scala> import spark.implicits._
+import spark.implicits._
+25/09/29 10:33:39 WARN GarbageCollectionMetrics: To enable non-built-in garbage collector(s) List(G1 Concurrent GC), users should configure it(them) to spark.eventLog.gcMetrics.youngGenerationGarbageCollectors or spark.eventLog.gcMetrics.oldGenerationGarbageCollectors
+
+scala> val col = Seq("Students","Marks")
+col: Seq[String] = List(Students, Marks)
+
+scala> val data = Seq(("Vaibhav",100),("Harsh",120),("Glen",123))
+data: Seq[(String, Int)] = List((Vaibhav,100), (Harsh,120), (Glen,123))
+
+scala> val rdd = sc.parallelize(data)
+rdd: org.apache.spark.rdd.RDD[(String, Int)] = ParallelCollectionRDD[0] at parallelize at <console>:27
+                   ^
+
+scala> rdd.collect
+res1: Array[(String, Int)] = Array((Vaibhav,100), (Harsh,120), (Glen,123))
+
+scala> val df = rdd.toDF()
+df: org.apache.spark.sql.DataFrame = [_1: string, _2: int]
+
+scala>
+
+scala> df.show()
++-------+---+
+|     _1| _2|
++-------+---+
+|Vaibhav|100|
+|  Harsh|120|
+|   Glen|123|
++-------+---+
+
+
+create a DF with 5 cols of employee name emp address emp dept
+col -> represents the col names
+_* -> expands sequence of col names into individual arguments
+
+scala> val rdd = spark.sparkContext.parallelize(Seq((1,"John"),(2,"Alice"),(3,"Krish")))
+rdd: org.apache.spark.rdd.RDD[(Int, String)] = ParallelCollectionRDD[11] at parallelize at <console>:22
+
+scala> val col = Seq("ID","Name")
+col: Seq[String] = List(ID, Name)
+
+scala> val df2 = spark.createDataFrame(rdd).toDF(col:_*)
+df2: org.apache.spark.sql.DataFrame = [ID: int, Name: string]
+
+scala> df2.show()
++---+-----+
+| ID| Name|
++---+-----+
+|  1| John|
+|  2|Alice|
+|  3|Krish|
++---+-----+
+
+
+df using rdds students in which cols are stud reg no and names, address course marks insert 10 rows
+
+
+
+
+scala> val df3 = spark.read
+df3: org.apache.spark.sql.DataFrameReader = org.apache.spark.sql.DataFrameReader@1d252cf0
+
+scala>   .option("header", "true")
+res22: org.apache.spark.sql.DataFrameReader = org.apache.spark.sql.DataFrameReader@1d252cf0
+
+scala> val df3 = spark.read.option("header",true).csv("C:/Users/hpvai/Downloads/sds.csv")
+df3: org.apache.spark.sql.DataFrame = [Ind: string, Delhi: string ... 1 more field]
+
+scala> df3.show
++----+------+----+
+| Ind| Delhi| 332|
++----+------+----+
+|Ind |Mumbai|5632|
++----+------+----+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
