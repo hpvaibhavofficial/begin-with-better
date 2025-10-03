@@ -46,13 +46,83 @@ public class q5 {
         return c;
     }
 
-    
+    private static Map<Character,Integer> allCharFreq(String s){
+        Map<Character,Integer> mp = new HashMap<>();
+        s=s.toLowerCase();
+        for(char c : s.toCharArray()){
+            mp.put(c, mp.getOrDefault(c,0)+1);
+        }
+        return mp;
+    }   
+
+    private static String remSpaces(String s){
+        s=s.replace(" ", "");
+        return s;
+    }
+
+    private static Character fnonrep(String s){
+        Map<Character,Integer> mp = new HashMap<>();
+        s=s.toLowerCase();
+        for(char c : s.toCharArray()){
+            mp.put(c,mp.getOrDefault(c,0)+1);
+        }
+
+        for(char c : s.toCharArray()){
+            if(mp.get(c) == 1){
+                return c;
+            }
+        }
+
+        return '\0';
+    }
+
+
+    private static String switchCase(String s){
+        String res = "";
+        for(char c : s.toCharArray()){
+            if(Character.isUpperCase(c)){
+                res+=Character.toLowerCase(c);
+            } else if(Character.isLowerCase(c)){
+                res+=Character.toUpperCase(c);
+            } else if(Character.isWhitespace(c)){
+                res+=c;
+            }
+        }
+        return res;
+    }
+
+    private static String removeDup(String s){
+        String res = "";
+        Set <Character> st  = new LinkedHashSet<>();
+        for(char c : s.toCharArray()){
+            if(st.add(c)){
+                res+=c;
+            }
+        }
+        return res;
+    }
+
+    private static String findLargestWord(String s){
+        String res="";
+        int st = 0,end =0;
+        int siz = Integer.MIN_VALUE;
+
+        for(int i=0;i<s.length();i++){
+            
+        }
+        return res;
+    }
     public static void main(String[] args) {
-        String s = "EXTxe";
+        String s = "UPPERCASE lowercase";
         System.err.println(reverseStr(s));
         System.err.println(checkPalindrome(s));
         System.err.println(countVowelsCons(s));
         System.out.println(charFreq(s, 'e'));
-        
-    }
+        System.out.println(allCharFreq(s));
+        System.out.println(remSpaces(s));
+        System.out.println(fnonrep(s));
+        System.out.println(switchCase(s));
+        System.out.println(removeDup(s));
+        System.out.println(findLargestWord(s));
+    }   
 }   
