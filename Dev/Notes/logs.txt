@@ -133,6 +133,132 @@ scala> df3.show
 
 
 
+scala> import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.SparkSession
+
+scala> val spk = SparkSession.builder().master("local[1]").appName("SparkExample").getOrCreate()
+25/10/04 10:22:04 WARN SparkSession: Using an existing Spark session; only runtime SQL configurations will take effect.
+spk: org.apache.spark.sql.SparkSession = org.apache.spark.sql.SparkSession@19f31c85
+
+scala> val df = spark.read.option("header",true).csv("C:/Users/hpvai/Downloads/sds.csv")
+df: org.apache.spark.sql.DataFrame = [Name: string, City: string ... 3 more fields]
+
+scala> df.printSchema()
+root
+ |-- Name: string (nullable = true)
+ |-- City: string (nullable = true)
+ |-- Rank: string (nullable = true)
+ |-- Age: string (nullable = true)
+ |-- Country: string (nullable = true)
+
+
+
+scala> df.show()
++-------+------+----+---+-------+
+|   Name|  City|Rank|Age|Country|
++-------+------+----+---+-------+
+|   Glen|Mumbai|5632| 21|    Ind|
+|William| Texas|5657| 23|     Us|
++-------+------+----+---+-------+
+
+scala> df.createOrReplaceTempView("v1")
+
+
+scala> spark.sql("select * from v1").show
++-------+------+----+---+-------+
+|   Name|  City|Rank|Age|Country|
++-------+------+----+---+-------+
+|   Glen|Mumbai|5632| 21|    Ind|
+|William| Texas|5657| 23|     Us|
++-------+------+----+---+-------+
+
+
+
+scala> import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.SparkSession
+
+scala> val df = spark.read.option("header",true).csv("C:/Users/hpvai/Downloads/sds.csv")
+df: org.apache.spark.sql.DataFrame = [Name: string, City: string ... 3 more fields]
+
+scala> df.printSchema()
+root
+ |-- Name: string (nullable = true)
+ |-- City: string (nullable = true)
+ |-- Rank: string (nullable = true)
+ |-- Age: string (nullable = true)
+ |-- Country: string (nullable = true)
+
+
+scala> df.show()
++-------+---------+----+---+-------+
+|   Name|     City|Rank|Age|Country|
++-------+---------+----+---+-------+
+|   Glen|   Mumbai|5632| 21|    Ind|
+|William|    Texas|5657| 23|     Us|
+| Sophia|   London|5621| 24|     Uk|
+| Rajesh|    Delhi|5789| 22|    Ind|
+|  Emily|   Sydney|5900| 25|    Aus|
+| Carlos|   Madrid|5821| 26|  Spain|
+|    Mia| New York|5755| 23|     Us|
+|  Akira|    Tokyo|6002| 27|    Jpn|
+| Fatima|    Dubai|5733| 24|    Uae|
+|   Chen|  Beijing|6100| 28|  China|
+| Olivia|  Toronto|5881| 25|    Can|
+|   Noah|  Chicago|5678| 22|     Us|
+| Ananya|Bangalore|5802| 24|    Ind|
+|  Lucas|S?o Paulo|5966| 26| Brazil|
+|   Emma|    Paris|5850| 23| France|
++-------+---------+----+---+-------+
+
+
+scala> df.createOrReplaceTempView("v2")
+
+scala> spark.sql("select * from v2").show
++-------+---------+----+---+-------+
+|   Name|     City|Rank|Age|Country|
++-------+---------+----+---+-------+
+|   Glen|   Mumbai|5632| 21|    Ind|
+|William|    Texas|5657| 23|     Us|
+| Sophia|   London|5621| 24|     Uk|
+| Rajesh|    Delhi|5789| 22|    Ind|
+|  Emily|   Sydney|5900| 25|    Aus|
+| Carlos|   Madrid|5821| 26|  Spain|
+|    Mia| New York|5755| 23|     Us|
+|  Akira|    Tokyo|6002| 27|    Jpn|
+| Fatima|    Dubai|5733| 24|    Uae|
+|   Chen|  Beijing|6100| 28|  China|
+| Olivia|  Toronto|5881| 25|    Can|
+|   Noah|  Chicago|5678| 22|     Us|
+| Ananya|Bangalore|5802| 24|    Ind|
+|  Lucas|S?o Paulo|5966| 26| Brazil|
+|   Emma|    Paris|5850| 23| France|
++-------+---------+----+---+-------+
+
+
+scala> spark.sql("select * from v2 where age in (21,22,23,24)").show
++-------+---------+----+---+-------+
+|   Name|     City|Rank|Age|Country|
++-------+---------+----+---+-------+
+|   Glen|   Mumbai|5632| 21|    Ind|
+|William|    Texas|5657| 23|     Us|
+| Sophia|   London|5621| 24|     Uk|
+| Rajesh|    Delhi|5789| 22|    Ind|
+|    Mia| New York|5755| 23|     Us|
+| Fatima|    Dubai|5733| 24|    Uae|
+|   Noah|  Chicago|5678| 22|     Us|
+| Ananya|Bangalore|5802| 24|    Ind|
+|   Emma|    Paris|5850| 23| France|
++-------+---------+----+---+-------+
+
+
+scala> spark.sql("select * from v2 where country ='Ind'").show
++------+---------+----+---+-------+
+|  Name|     City|Rank|Age|Country|
++------+---------+----+---+-------+
+|  Glen|   Mumbai|5632| 21|    Ind|
+|Rajesh|    Delhi|5789| 22|    Ind|
+|Ananya|Bangalore|5802| 24|    Ind|
++------+---------+----+---+-------+
 
 
 

@@ -37,3 +37,9 @@ A df is the collection of row and col. Built on the top of RDD but offers a bett
 ### Ways to create DF
 - **Local Collection** - We use toDF()
 - **From RDD** - Using toDF() on rdd
+
+
+### Creation of DF
+- Create a spark session : we need to import a package import org.apache.spark.sql.SparkSession
+- val spark = SparkSession.builder().master(local[i])
+"C:/Users/hpvai/Downloads/sds.csv"

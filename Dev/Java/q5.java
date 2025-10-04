@@ -103,17 +103,45 @@ public class q5 {
     }
 
     private static String findLargestWord(String s){
-        String res="";
-        int st = 0,end =0;
-        int siz = Integer.MIN_VALUE;
+        String res=""; int length =0;
+        String arr[] = s.split(" ");
+        for(String x : arr){
+            if(x.length()>length){
+                res=x;
+                length=x.length();
+            }
+        }    
+        return res;
+    }
 
-        for(int i=0;i<s.length();i++){
-            
+    private static List<String> findAllLargestWords(String s){
+        List<String> list = new ArrayList<>(); int length=0;
+        String arr[] = s.split(" ");
+        for(String x : arr){
+           length = Math.max(length,x.length());           
+        }
+        for(String x : arr){
+            if(length == x.length()){
+                list.add(x);
+            }
+        }
+
+        return list;
+    }
+
+    private static String findSmallestString(String s){
+        int length = Integer.MAX_VALUE;String res="";
+        String arr[] = s.split(" ");
+        for(String x : arr){
+            if(length>x.length()){
+                res=x;
+                length=x.length();
+            }
         }
         return res;
     }
     public static void main(String[] args) {
-        String s = "UPPERCASE lowercase";
+        String s = "Iaa am groot and iaas love trees and plant";
         System.err.println(reverseStr(s));
         System.err.println(checkPalindrome(s));
         System.err.println(countVowelsCons(s));
@@ -124,5 +152,7 @@ public class q5 {
         System.out.println(switchCase(s));
         System.out.println(removeDup(s));
         System.out.println(findLargestWord(s));
+        System.out.println(findAllLargestWords(s));
+        System.out.println(findSmallestString(s));
     }   
 }   
