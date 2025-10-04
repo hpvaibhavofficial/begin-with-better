@@ -2,7 +2,7 @@ import java.util.HashSet;
 import java.util.Set;
 public class q4{
     private static Integer allMedians(int arr1 [], int arr2[]){
-        int ans =0;
+        
         Set<Double> st = new HashSet<>();
         
         for(int x : arr1){

@@ -140,8 +140,84 @@ public class q5 {
         }
         return res;
     }
-    public static void main(String[] args) {
-        String s = "Iaa am groot and iaas love trees and plant";
+
+    private static Boolean isAnaGram(String s,String t){
+        s=s.toLowerCase();
+        t=t.toLowerCase();
+         if(s.length() != t.length()) return false;
+        Map<Character,Integer> mp = new HashMap<>();
+        for(char c : s.toCharArray()){
+            mp.put(c, mp.getOrDefault(c, 0)+1);
+        }
+
+        for(char c : t.toCharArray()){
+            if(mp.containsKey(c)){
+                mp.put(c,mp.get(c)-1);
+
+                if(mp.get(c)<=0){
+                    mp.remove(c);
+                }
+            }
+        }
+        return mp.isEmpty();
+    }
+
+
+    private static String reverseOrderWords(String s){
+        //the sky is blue
+        String res= "";
+        String arr[] = s.split("\\s+");
+        for(int i=arr.length-1;i>=0;i--){
+            res+=arr[i];
+            res+=" ";
+        }
+        res=res.trim();
+        return res;
+    }   
+
+    private static List<String>findAllSubStrings(String s){
+        List<String> list = new ArrayList<>();
+        s=s.replace(" ","");
+        for(int i=0;i<s.length();i++){
+            list.add(s.substring(i));
+        }
+        return list;
+    }
+
+    private static Boolean checkRotation(String s1,String s2){
+        StringBuilder sb = new StringBuilder(s1);
+        //sb.reverse();
+        return sb.reverse().toString().equals(s2);
+    }
+
+   private static Map<String,Integer> allWordFreq(String s){
+        Map<String,Integer> mp = new HashMap<>();
+        String arr[] = s.split("[,\\s]+");
+        for(String x : arr){
+            mp.put(x,mp.getOrDefault(x, 0)+1);
+        }
+        return mp;
+   }
+
+   private static Boolean containsOnlyDigits(String s){
+        for(int i=0;i<s.length();i++){
+            if(!Character.isDigit(s.charAt(i))){
+                return false;
+                
+            }
+        }
+        return true;
+   }
+
+
+
+
+
+
+   
+   private static void display(){
+        String s = "12435435";
+        String t = "Listen";
         System.err.println(reverseStr(s));
         System.err.println(checkPalindrome(s));
         System.err.println(countVowelsCons(s));
@@ -154,5 +230,16 @@ public class q5 {
         System.out.println(findLargestWord(s));
         System.out.println(findAllLargestWords(s));
         System.out.println(findSmallestString(s));
+        System.out.println(isAnaGram(s, t));
+        System.out.println(reverseOrderWords(s));
+        System.out.println(findAllSubStrings(s));
+        //checkRotation(s, t);
+        System.out.println(checkRotation(s,t));
+        System.out.println(allWordFreq(s));
+        System.out.println(containsOnlyDigits(s));
+   }
+
+    public static void main(String[] args) {
+        display();
     }   
 }   

@@ -262,6 +262,60 @@ scala> spark.sql("select * from v2 where country ='Ind'").show
 
 
 
+--------------------------------------------------------------------------------------------------------------
+scala> val df = spark.read.option("header",true).csv("C:/Users/hpvai/Downloads/d1.csv")
+df: org.apache.spark.sql.DataFrame = [Name: string, Age: string ... 2 more fields]
+
+scala> df.printSchema
+root
+ |-- Name: string (nullable = true)
+ |-- Age: string (nullable = true)
+ |-- Department: string (nullable = true)
+ |-- Salary: string (nullable = true)
+
+
+scala> df.show
++-------+---+----------+------+
+|   Name|Age|Department|Salary|
++-------+---+----------+------+
+|  Alice| 28|        HR| 55000|
+|    Bob| 34|        IT| 75000|
+|Charlie| 25| Marketing| 50000|
+|  Diana| 30|   Finance| 68000|
+|  Ethan| 40|        IT| 90000|
+|  Fiona| 29|        HR| 60000|
+| George| 38|   Finance| 72000|
+| Hannah| 27| Marketing| 52000|
+|    Ian| 32|        IT| 80000|
+|  Julia| 26|        HR| 58000|
++-------+---+----------+------+
+
+
+scala> df.createOrReplaceTempView("vc")
+
+scala> spark.sql("select avg(age) from vc")
+res30: org.apache.spark.sql.DataFrame = [avg(age): double]
+
+scala> spark.sql("select avg(age) from vc").show
++--------+
+|avg(age)|
++--------+
+|    30.9|
++--------+
+
+scala> spark.sql("select name from vc where department = 'Finance'").show
++------+
+|  name|
++------+
+| Diana|
+|George|
++------+
+---------------------------------------------------------------------------------------------------------------
+
+
+
+
+
 
 
 
