@@ -35,3 +35,5 @@ React Fiber is the new reconciliation engine in React (introduced in React 16) t
 Fibre is like React’s internal task scheduler.
 It breaks rendering work into small units called fibers, allowing React to pause, prioritize, and resume work.
 This enables concurrent rendering and smoother UI updates.
+
+Props : 

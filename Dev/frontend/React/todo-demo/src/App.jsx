@@ -1,14 +1,21 @@
-import { useState } from 'react'
-import './App.css'
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { TodoItem } from "./TodoItem";
+import TodoHead from "./TodoHead";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <center><h1>Todo Demo</h1></center>
+      <center className="todo-container">
+        <div className="container">
+          <TodoHead />
+          <div className="item">
+            <TodoItem />
+          </div>
+        </div>
+      </center>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
