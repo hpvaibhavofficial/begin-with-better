@@ -1,0 +1,73 @@
+Level 1 – Basics
+
+Reverse a string without using StringBuilder or StringBuffer.
+
+Check if a string is a palindrome.
+
+Count vowels and consonants in a string.
+
+Count how many times a character appears in a string.
+
+Remove all spaces from a string.
+
+Remove a specific character (say 'a') from a string.
+
+Find the first non-repeated character in a string.
+
+Swap the case of each character (upper → lower, lower → upper).
+
+
+
+
+
+Level 2 – Intermediate
+
+Remove duplicate characters from a string.
+
+Find the largest word in a string.
+
+Find the smallest word in a string.
+
+Check if two strings are anagrams.
+
+Reverse the order of words in a string:
+
+"the sky is blue" → "blue is sky the".
+
+Find all substrings of a given string.
+
+Check if one string is a rotation of another (e.g., "abcde" is rotation of "cdeab").
+
+Print all permutations of a string.
+
+Check if a string contains only digits.
+
+Find the frequency of each word in a sentence.
+
+
+
+Level 3 – Tricky
+
+Implement your own split() method (without using Java’s split).
+
+Find the longest substring without repeating characters.
+
+Find the longest common prefix from an array of strings.
+
+Print the first repeated character in a string.
+
+Print the last repeated character in a string.
+
+Remove all non-alphanumeric characters from a string.
+
+Compress a string: "aaabbcddd" → "a3b2c1d3".
+
+Expand a string: "a3b2c1d3" → "aaabbcddd".
+
+Check if two strings are equal ignoring case and whitespace.
+
+Find the lexicographically smallest and largest substring of a given length k.
+
+Reverse a string using recursion.
+
+Replace all occurrences of a substring in a string (without using replace).

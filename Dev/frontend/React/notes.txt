@@ -1,0 +1,37 @@
+React → React is a JavaScript library used to create User Interfaces (UI) and mainly Single Page Applications (SPA).
+It was developed by Facebook.
+
+React uses a component-based architecture, which means the UI is divided into small, reusable pieces called components.
+This makes apps faster, dynamic, and easy to manage.
+
+React also uses JSX (JavaScript XML), which lets us write HTML inside JavaScript.
+
+Setting Up the Environment
+Earlier, we used Create React App (CRA) to make React projects:
+Old Way -> npx create-react-app app-name 
+New Way -> npm create vite@latest app-name
+
+But CRA is slow and bulky, so now we use Vite, which is faster and lighter.
+
+Components
+React apps are built using components.
+Each component is an independent and reusable block that helps build a clean and structured UI.
+
+Virtual DOM
+A lightweight inmemory representation of real DOM. 
+Whenever anything changes in react then it doesnt update real dom immediately, it firstly updates the virtual DOM and then it compares it with previous version using a process called reconciliation and then apply minimal changes necessary to real DOM.
+
+Working Mechanism
+createRoot() opens the entry point for React’s rendering system.
+It sends our component tree (with JSX and data) to React’s internal renderer.
+React then converts the JSX into a Virtual DOM tree, which is a lightweight, in-memory representation of the real DOM.
+During reconciliation, React checks if any state or props have changed. If so, it creates a new Virtual DOM that reflects those changes.
+React then compares the previous Virtual DOM with the new one using the diffing algorithm to identify the minimal set of updates required.
+Finally, React applies only those necessary changes to the real DOM, making the UI update efficient and fast.
+The process of comparing (diffing) and updating (reconciliation) together ensures React avoids unnecessary re-renders.
+
+
+React Fiber is the new reconciliation engine in React (introduced in React 16) that controls how React updates the Virtual DOM and Real DOM efficiently.
+Fibre is like React’s internal task scheduler.
+It breaks rendering work into small units called fibers, allowing React to pause, prioritize, and resume work.
+This enables concurrent rendering and smoother UI updates.
