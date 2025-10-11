@@ -1,26 +1,15 @@
 .todo-container {
-  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
 }
 
 .todo-container h1 {
   font-weight: 700;
-  margin: 10px;
-  margin-bottom: 20px;
+  margin: 10px 0 20px 0;
+  text-align: center;
 }
 
 .todo-container input {
-  width: 100%;
-}
-
-.todo-container .item {
-  text-align: left;
-}
-
-.vb-row {
-  margin: 9px 4px;
-  align-items: center;
-}
-
-.vb-button {
-  width: 100%;
+  width: 80%;
 }

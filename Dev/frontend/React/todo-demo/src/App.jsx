@@ -1,20 +1,21 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { TodoItem } from "./TodoItem";
-import TodoHead from "./TodoHead";
+import TodoHead from "./components/TodoHead";
+import TodoItems from "./components/TodoItems";
 
 function App() {
+  const arr = [
+    { name: "Task - 1", dueDate: "10/09/2024" },
+    { name: "Task - 2", dueDate: "10/09/2024" },
+  ];
+
   return (
-    <>
-      <center className="todo-container">
-        <div className="container">
-          <TodoHead />
-          <div className="item">
-            <TodoItem />
-          </div>
-        </div>
-      </center>
-    </>
+    <div className="todo-container">
+      <div className="container">
+        <TodoHead />
+        <TodoItems items={arr} />
+      </div>
+    </div>
   );
 }
 
