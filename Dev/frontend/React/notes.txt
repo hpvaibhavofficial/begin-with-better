@@ -36,4 +36,7 @@ Fibre is like React’s internal task scheduler.
 It breaks rendering work into small units called fibers, allowing React to pause, prioritize, and resume work.
 This enables concurrent rendering and smoother UI updates.
 
-Props : 
+Props : Props are read only inputs that are used to pass data from parent component to child component. Props are short form for properties. They nake components dynamic. Props are immutable. One way only.
+
+Conditional Rendering : Displaying components on the basis of certain conditions.
+

@@ -1,25 +1,14 @@
 import React from "react";
+import FoodItem from "./components/FoodItem";
 import Card from "./Card";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function App() {
+  let arr = ["Dal", "Chapati", "Matar Paneer", "Mix Veg", "Salad", "Milk"];
   return (
     <div>
-      <center>
-         <Card name ="VAIBHAV" />
-      
-      
-      <button type="button" class="btn btn-primary">Primary</button>
-      <button type="button" class="btn btn-secondary">Secondary</button>
-      <button type="button" class="btn btn-success">Success</button>
-      <button type="button" class="btn btn-danger">Danger</button>
-      <button type="button" class="btn btn-warning">Warning</button>
-      <button type="button" class="btn btn-info">Info</button>
-      <button type="button" class="btn btn-light">Light</button>
-      <button type="button" class="btn btn-dark">Dark</button>
-      <button type="button" class="btn btn-link">Link</button>
- 
-      </center>
-          </div>
+      <Card name="VAIBHAV" />
+      <FoodItem items={arr} />
+    </div>
   );
 }
