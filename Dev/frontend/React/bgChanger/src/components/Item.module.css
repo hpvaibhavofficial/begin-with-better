@@ -1,7 +1,10 @@
 .vb-item{
-    background-color: khaki;
+  margin: 0px;
 }
 .vb-span{
     color: rgb(254, 71, 4);
     font-weight: 600;
+}
+.button{
+    float: right;
 }

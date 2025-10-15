@@ -1,8 +1,13 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import styles from "./App.module.css";
+import Display from "./components/Display";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <Display />
+    </>
+  );
 }
 
 export default App;
-B;

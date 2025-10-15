@@ -5,7 +5,11 @@ function FoodItem({ items }) {
     <>
       <ul className="list-group">
         {items.map((item) => (
-          <Item key={item} fooditem={item} />
+          <Item
+            key={item}
+            fooditem={item}
+            handleBuyButton={() => console.log(`Item Bought ${item}`)}
+          />
         ))}
       </ul>
     </>

@@ -40,3 +40,15 @@ Props : Props are read only inputs that are used to pass data from parent compon
 
 Conditional Rendering : Displaying components on the basis of certain conditions.
 
+children : a special type of prop which allws sending elements components and data as prop.
+common in layout and container components.
+accessed with props.children
+
+In React, events are handled via Synthetic Events, which are cross-browser wrappers around native DOM events. They use camelCase names (like onClick) and are passed as props, unlike standard JavaScript events that use addEventListener and lowercase names.
+
+
+=----------------------------------------------------------------------------------------------=
+Brokers -> kafka servers
+zookeeper -> centralized server
+
+
