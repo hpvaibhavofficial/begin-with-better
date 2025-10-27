@@ -1,8 +1,10 @@
 import styles from "./Button.module.css";
-function Button({ btn }) {
+function Button({ btn, onClickHandle }) {
   return (
     <>
-      <button className={styles.button}>{btn}</button>
+      <button className={styles.button} onClick={(e) => onClickHandle(e, btn)}>
+        {btn}
+      </button>
     </>
   );
 }

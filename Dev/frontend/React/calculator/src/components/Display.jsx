@@ -1,7 +1,25 @@
+import { useState } from "react";
 import ButtonsContainer from "./ButtonsContainer";
 import styles from "./Display.module.css";
 
 function Display() {
+  const [displayVal, setDisplayVal] = useState("");
+  const onClickHandle = (e, btn) => {
+    try {
+      if (btn === "=") {
+        const res = eval(displayVal);
+        setDisplayVal(res);
+      } else if (btn === "C") {
+        setDisplayVal("");
+      } else {
+        setDisplayVal(displayVal + btn);
+      }
+    } catch (error) {
+      setDisplayVal("Error");
+      console.error("Invalid expression:", error);
+    }
+  };
+
   const buttons = [
     "C",
     "1",
@@ -24,8 +42,8 @@ function Display() {
   return (
     <>
       <div className={styles.calculator}>
-        <input className={styles.display} type="text" />
-        <ButtonsContainer btns={buttons} />
+        <input className={styles.display} type="text" value={displayVal} />
+        <ButtonsContainer btns={buttons} onClickHandle={onClickHandle} />
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import FoodItem from "./components/FoodItem";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ErrorMessage from "./components/ErrorMessage";
@@ -8,10 +8,13 @@ import FoodInput from "./components/FoodInput";
 
 export default function App() {
   let arr = ["Dal", "Chapati", "Matar Paneer", "Mix Veg", "Salad", "Milk"];
-  let tts = "Here content will display.";
+  const [tts, setTts] = useState("Here the content will display");
+
   const handleChange = (e) => {
-    tts = e.target.value;
-    console.log(tts);
+    if (e.code === "Enter") {
+      setTts(e.target.value);
+    }
+    // console.log(e);
   };
   return (
     <>

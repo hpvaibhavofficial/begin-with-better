@@ -1,4 +1,4 @@
-.calculator{
+/* .calculator{
     margin: 30px;
     border: 1px solid black;
     width: 200px;
@@ -9,4 +9,35 @@
     margin: 10px;
     width: 175px;
 }
+ */
+/* 🌟 Module 1: Buttons */
+/* 🧮 Module 3: Calculator Display */
+.calculator { 
+    margin: 50px auto;
+    padding: 15px;
+    background: linear-gradient(145deg, #1f1f1f, #2c2c2c);
+    border-radius: 20px;
+    width: 260px;
+    box-shadow: 8px 8px 16px #0c0c0c, -8px -8px 16px #3d3d3d;
+    transition: all 0.3s ease;
+}
 
+.calculator:hover {
+    box-shadow: 12px 12px 20px #0c0c0c, -12px -12px 20px #3d3d3d;
+}
+
+
+/* 💡 Display Section */
+.display {
+    margin: 10px auto 20px auto;
+    width: 220px;
+    height: 60px;
+    background: #000;
+    border-radius: 12px;
+    color: #0f0;
+    font-family: 'Digital-7', monospace;
+    font-size: 2rem;
+    text-align: right;
+    padding: 10px;
+    box-shadow: inset 4px 4px 10px #0a0a0a, inset -4px -4px 10px #3d3d3d;
+}

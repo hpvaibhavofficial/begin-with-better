@@ -1,5 +1,31 @@
-.button{
+/* .button{
     margin: 3px;
     width: 45px;
     height: 45px;
+} */
+
+.button { 
+    margin: 6px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #1e1e1e, #292929);
+    color: #f2f2f2;
+    box-shadow: 3px 3px 8px #0d0d0d, -3px -3px 8px #3a3a3a;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 10px #0a0a0a, -4px -4px 10px #404040;
+}
+
+.button:active {
+    transform: translateY(1px);
+    box-shadow: inset 2px 2px 6px #0a0a0a, inset -2px -2px 6px #404040;
 }

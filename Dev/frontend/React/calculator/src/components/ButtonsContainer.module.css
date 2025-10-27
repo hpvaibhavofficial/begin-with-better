@@ -1,5 +1,13 @@
-.buttonsContainer{
+/* .buttonsContainer{
     display: flex;
     justify-content:center;
     flex-wrap: wrap;
+} */
+
+.buttonsContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px;
 }

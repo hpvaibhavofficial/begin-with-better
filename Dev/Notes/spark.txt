@@ -22,3 +22,19 @@ working steps
 As collect here we use .show() to display output of queries
 
 Spark SQL Architecture
+
+Graphx is a component of apache spark built on top of spark core built for parallel computation.Node 
+
+graph x inherits feature of rdd
+
+
+
+
+
+
+
+
+
+
+
+
