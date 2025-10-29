@@ -1,0 +1,41 @@
+Inheritance
+is a mechanism of acquiring properties and behaviour of one class to another. In java we use extends keyword to inherit properties.
+Inheritance is basically 'IS A' relationship. Child Class is a Parent Class.
+Basicallly it supports code reusability.
+Also Inheritance have a lot of keywords involved like super,this.
+super -> keyword used to access parent class variables and constructors.(This keyword cannot be direcly used inside the class. We can use it inside a method or constructor.)
+this -> refers to current class instance. Used to refers class members methods or constructors.
+
+Rules
+We cannot inherit private and final class.
+static and final members can be inherited but cannot be overriden.
+private members cannot be inherited.
+protected members can be inherited and remains protected in child class.
+
+Types of Inheritance
+-> Single Inheritance
+-> Multilevel Inheritance
+-> Hierarchial Inheritance
+-> Hybrid Inheritance 
+
+
+Encapsulation :
+is the process of wrapping the data members and methods into a single unit.
+It basically aims at restricting the data access directly from other class and accessing it via some public methods.
+This ensures the data hiding , controlled access to class members.
+
+Abstraction 
+is a key feature of OOP which aims at hiding the implementation and showing only the essential features. 
+It can be acheived using two ways
+abstract classes
+interfaces
+
+Abstract Classes
+are those classes which cannot  be instantiated directly.It is Basically  a partially implemented class which can have both abstract and non abstract methods. It is declared using abstract keyword followed by classname. Also the abstract methods must have abstract keyword.
+
+These classes are meant to be inherited by some other class.These classes define some set of functionality which inheritable class must follow.
+
+T
+
+
+ 

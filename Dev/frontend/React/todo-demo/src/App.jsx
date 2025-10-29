@@ -2,17 +2,23 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import TodoHead from "./components/TodoHead";
 import TodoItems from "./components/TodoItems";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Welcome from "./components/Welcome";
 function App() {
-  const handleAddButton = (name, dueDate) => {
-    if (!name.trim() || !dueDate) {
+  const handleAddButton = (name, dueDate, e) => {
+    e.preventDefault();
+    let todoName = name.current.value;
+    let duedate = dueDate.current.value;
+
+    if (!todoName.trim() || !duedate) {
       alert("name and duedate are required.");
       return;
     }
-    const obj = { name: name, dueDate: dueDate };
+    const obj = { name: todoName, dueDate: duedate };
     let narr = [...arr, obj];
     setArr(narr);
+    name.current.value = "";
+    dueDate.current.value = "";
   };
 
   const onDeleteClicked = (item) => {

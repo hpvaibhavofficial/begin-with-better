@@ -1,44 +1,30 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styles from "./TodoHead.module.css";
 import { IoAddCircle } from "react-icons/io5";
 
 function TodoHead({ handleAddButton }) {
-  const [name, setName] = useState("");
-  const [date, setDate] = useState("");
-
-  const onNewName = (e) => {
-    setName(e.target.value);
-  };
-
-  const onNewDate = (e) => {
-    setDate(e.target.value);
-  };
+  const todoName = useRef("");
+  const dueDate = useRef("");
 
   return (
     <>
       <h1 className="">Todo APP</h1>
-      <div className={`row ${styles.vbRow}`}>
+      <form
+        className={`row ${styles.vbRow}`}
+        onSubmit={(e) => handleAddButton(todoName, dueDate, e)}
+      >
         <div className="col-6">
-          <input
-            type="text"
-            value={name}
-            placeholder="Enter text here"
-            onChange={(e) => onNewName(e)}
-          />
+          <input type="text" ref={todoName} placeholder="Enter text here" />
         </div>
         <div className="col-4">
-          <input type="date" value={date} onChange={onNewDate} />
+          <input type="date" ref={dueDate} />
         </div>
         <div className="col-2">
-          <button
-            type="button"
-            className={`btn btn-success ${styles.vbButton}`}
-            onClick={(e) => handleAddButton(name, date)}
-          >
+          <button className={`btn btn-success ${styles.vbButton}`}>
             <IoAddCircle />
           </button>
         </div>
-      </div>
+      </form>
     </>
   );
 }
