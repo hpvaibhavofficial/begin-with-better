@@ -312,6 +312,155 @@ scala> spark.sql("select name from vc where department = 'Finance'").show
 |George|
 +------+
 ---------------------------------------------------------------------------------------------------------------
+scala> import org.apache.spark._
+import org.apache.spark._
+
+scala> import org.apache.spark.graphx._
+import org.apache.spark.graphx._
+
+scala> val ver = Array((1L,("A")),(2L,("B")),(3L,("C")))
+ver: Array[(Long, String)] = Array((1,A), (2,B), (3,C))
+
+scala> val rdd = sc.parallelize(ver)
+rdd: org.apache.spark.rdd.RDD[(Long, String)] = ParallelCollectionRDD[0] at parallelize at <console>:30
+
+scala> rdd.take(1)
+res0: Array[(Long, String)] = Array((1,A))
+
+scala> val edges = Array(Edge(1L,2L,1800),Edge(2L,3L,800),Edge(3L,1L,1400))
+edges: Array[org.apache.spark.graphx.Edge[Int]] = Array(Edge(1,2,1800), Edge(2,3,800), Edge(3,1,1400))
+
+scala> val erdd = sc.parallelize(edges)
+erdd: org.apache.spark.rdd.RDD[org.apache.spark.graphx.Edge[Int]] = ParallelCollectionRDD[1] at parallelize at <console>:30
+
+scala> erdd.take(2)
+res1: Array[org.apache.spark.graphx.Edge[Int]] = Array(Edge(1,2,1800), Edge(2,3,800))
+
+scala> val nowhere = "nowhere"
+nowhere: String = nowhere
+
+scala> val graph = Graph(rdd,erdd,nowhere)
+graph: org.apache.spark.graphx.Graph[String,Int] = org.apache.spark.graphx.impl.GraphImpl@c4ced8e
+
+scala> graph.vertices.collect.foreach(println)
+(1,A)
+(2,B)
+(3,C)
+
+scala> graph.edges.collect.foreach(println)
+Edge(1,2,1800)
+Edge(2,3,800)
+Edge(3,1,1400)
+
+scala> val numairports = graph.numVertices
+numairports: Long = 3
+
+scala> val numroutes = graph.numEdges
+numroutes: Long = 3
+
+scala> graph.edges.filter { case Edge(src, dst, prop) => prop > 1000}.collect.foreach(println)
+Edge(1,2,1800)
+Edge(3,1,1400)
+
+scala> graph.triplets.take(3).foreach(println)
+((1,A),(2,B),1800)
+((2,B),(3,C),800)
+((3,C),(1,A),1400)
+
+scala> val f = graph.inDegrees
+f: org.apache.spark.graphx.VertexRDD[Int] = VertexRDDImpl[26] at RDD at VertexRDD.scala:57
+
+scala> f.collect
+res6: Array[(org.apache.spark.graphx.VertexId, Int)] = Array((1,1), (2,1), (3,1))
+
+scala> val totalDegrees = graph.degrees
+totalDegrees: org.apache.spark.graphx.VertexRDD[Int] = VertexRDDImpl[30] at RDD at VertexRDD.scala:57
+
+scala> totalDegrees.collect
+res7: Array[(org.apache.spark.graphx.VertexId, Int)] = Array((1,2), (2,2), (3,2))
+
+
+-------------------
+scala> val vertices = Array(
+     |   (1L, ("Aarav", "CSE")),
+     |   (2L, ("Bhavana", "ECE")),
+     |   (3L, ("Chirag", "ME")),
+     |   (4L, ("Deepika", "CSE")),
+     |   (5L, ("Eshan", "IT"))
+     | )
+vertices: Array[(Long, (String, String))] = Array((1,(Aarav,CSE)), (2,(Bhavana,ECE)), (3,(Chirag,ME)), (4,(Deepika,CSE)), (5,(Eshan,IT)))
+
+
+scala> val edges = Array(
+     |   Edge(1L, 2L, 8),
+     |   Edge(2L, 3L, 6),
+     |   Edge(3L, 4L, 9),
+     |   Edge(4L, 5L, 7),
+     |   Edge(5L, 1L, 5)
+     | )
+edges: Array[org.apache.spark.graphx.Edge[Int]] = Array(Edge(1,2,8), Edge(2,3,6), Edge(3,4,9), Edge(4,5,7), Edge(5,1,5))
+
+scala>
+
+scala> val vRDD = sc.parallelize(vertices)
+vRDD: org.apache.spark.rdd.RDD[(Long, (String, String))] = ParallelCollectionRDD[59] at parallelize at <console>:30
+
+scala> val eRDD = sc.parallelize(edges)
+eRDD: org.apache.spark.rdd.RDD[org.apache.spark.graphx.Edge[Int]] = ParallelCollectionRDD[60] at parallelize at <console>:30
+
+scala> val defaultUser = ("Unknown", "Unknown")
+defaultUser: (String, String) = (Unknown,Unknown)
+
+scala> val graph = Graph(vRDD, eRDD, defaultUser)
+graph: org.apache.spark.graphx.Graph[(String, String),Int] = org.apache.spark.graphx.impl.GraphImpl@4f5a4a20
+
+scala> graph.vertices.collect.foreach(println)
+(1,(Aarav,CSE))
+(2,(Bhavana,ECE))
+(3,(Chirag,ME))
+(4,(Deepika,CSE))
+(5,(Eshan,IT))
+
+scala> graph.edges.collect.foreach(println)
+Edge(1,2,8)
+Edge(2,3,6)
+Edge(3,4,9)
+Edge(4,5,7)
+Edge(5,1,5)
+
+scala> val totalVertices = graph.numVertices
+totalVertices: Long = 5
+
+scala> totalVertices.collect
+<console>:30: error: value collect is not a member of Long
+       totalVertices.collect
+                     ^
+
+scala> val outdeg = graph.outDegrees
+outdeg: org.apache.spark.graphx.VertexRDD[Int] = VertexRDDImpl[78] at RDD at VertexRDD.scala:57
+
+scala> outdeg.collect
+res31: Array[(org.apache.spark.graphx.VertexId, Int)] = Array((1,1), (2,1), (3,1), (4,1), (5,1))
+
+scala> val in = graph.inDegrees
+in: org.apache.spark.graphx.VertexRDD[Int] = VertexRDDImpl[82] at RDD at VertexRDD.scala:57
+
+scala> in.collect
+res32: Array[(org.apache.spark.graphx.VertexId, Int)] = Array((1,1), (2,1), (3,1), (4,1), (5,1))
+
+scala> val totdeg = graph.degrees
+totdeg: org.apache.spark.graphx.VertexRDD[Int] = VertexRDDImpl[86] at RDD at VertexRDD.scala:57
+
+scala> totdeg.collect
+res33: Array[(org.apache.spark.graphx.VertexId, Int)] = Array((1,2), (2,2), (3,2), (4,2), (5,2))
+
+
+
+
+
+
+
+
 
 
 

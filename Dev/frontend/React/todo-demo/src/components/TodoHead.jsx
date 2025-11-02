@@ -1,17 +1,18 @@
-import { useRef, useState } from "react";
+import { useContext, useRef } from "react";
 import styles from "./TodoHead.module.css";
 import { IoAddCircle } from "react-icons/io5";
+import { TodoItemsContext } from "./store/todo-items-store";
 
-function TodoHead({ handleAddButton }) {
+function TodoHead() {
   const todoName = useRef("");
   const dueDate = useRef("");
-
+  const { addNewItem } = useContext(TodoItemsContext);
   return (
     <>
       <h1 className="">Todo APP</h1>
       <form
         className={`row ${styles.vbRow}`}
-        onSubmit={(e) => handleAddButton(todoName, dueDate, e)}
+        onSubmit={(e) => addNewItem(todoName, dueDate, e)}
       >
         <div className="col-6">
           <input type="text" ref={todoName} placeholder="Enter text here" />

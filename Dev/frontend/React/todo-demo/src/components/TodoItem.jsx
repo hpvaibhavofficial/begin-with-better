@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import styles from "./TodoItem.module.css";
+import { TodoItemsContext } from "./store/todo-items-store";
 
-function TodoItem({ tname = "John Doe", tdate = "12/10/2025", ondelete }) {
+function TodoItem({ tname = "John Doe", tdate = "12/10/2025" }) {
+  const { deleteItem } = useContext(TodoItemsContext);
   return (
     <div className={`row ${styles.vbRow}`}>
       <div className="col-6">{tname}</div>
@@ -9,7 +12,7 @@ function TodoItem({ tname = "John Doe", tdate = "12/10/2025", ondelete }) {
         <button
           type="button"
           className={`btn btn-danger ${styles.vbButton}`}
-          onClick={() => ondelete(tname)}
+          onClick={() => deleteItem(tname)}
         >
           Delete
         </button>
