@@ -1,0 +1,182 @@
+project 
+
+C:\Windows\System32>pyspark
+Python 3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+25/11/12 01:13:20 WARN Shell: Did not find winutils.exe: java.io.FileNotFoundException: java.io.FileNotFoundException: HADOOP_HOME and hadoop.home.dir are unset. -see https://wiki.apache.org/hadoop/WindowsProblems
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /__ / .__/\_,_/_/ /_/\_\   version 3.5.6
+      /_/
+
+Using Python version 3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024 10:12:12)
+Spark context Web UI available at http://Oliver:4040
+Spark context available as 'sc' (master = local[*], app id = local-1762890205099).
+SparkSession available as 'spark'.
+>>>
+>>>
+>>>
+>>> from pyspark.sql import SparkSession
+>>> 25/11/12 01:13:39 WARN GarbageCollectionMetrics: To enable non-built-in garbage collector(s) List(G1 Concurrent GC), users should configure it(them) to spark.eventLog.gcMetrics.youngGenerationGarbageCollectors or spark.eventLog.gcMetrics.oldGenerationGarbageCollectors
+
+>>> from pyspark.sql import SparkSession
+>>> from pyspark.ml.feature import VectorAssembler
+>>> from pyspark.ml.classification import LinearSVC
+>>> from pyspark.ml.evaluation import MulticlassClassificationEvaluator
+>>> spark = SparkSession.builder.getOrCreate()
+>>> df = data = spark.read.csv("C:/Users/hpvai/Downloads/bus_delay_dataset.csv",header=True, inferSchema=True)
+>>>
+>>>
+>>>
+>>> df.show()
++--------+-----------+-------------+-------+--------+----------------------+-------------------+------------+
+|route_id|distance_km|traffic_level|weather|day_type|scheduled_duration_min|actual_duration_min|delay_status|
++--------+-----------+-------------+-------+--------+----------------------+-------------------+------------+
+|      R7|      33.45|       Medium|  Rainy| Weekday|                    27|                 41|     Delayed|
+|      R4|      31.05|         High|  Clear| Weekday|                    16|                 32|     Delayed|
+|      R5|      23.79|          Low|  Clear| Weekend|                    96|                 93|     On-Time|
+|      R7|      38.33|          Low|  Rainy| Weekday|                   106|                117|     Delayed|
+|      R3|       9.62|       Medium|  Clear| Weekday|                    71|                 76|     Delayed|
+|      R8|       6.15|         High|  Storm| Weekday|                    54|                 89|     Delayed|
+|      R5|      34.45|       Medium|  Rainy| Weekday|                    25|                 40|     Delayed|
+|      R5|      18.69|       Medium|  Storm| Weekday|                    73|                 99|     Delayed|
+|      R7|      34.18|       Medium|  Clear| Weekday|                    46|                 50|     Delayed|
+|      R2|      35.94|         High|    Fog| Weekend|                    34|                 47|     Delayed|
+|      R3|       4.37|         High|  Clear| Weekday|                    18|                 31|     Delayed|
+|      R7|      35.57|         High|  Storm| Weekday|                    64|                101|     Delayed|
+|      R3|      19.04|          Low|  Clear| Weekday|                    37|                 37|     On-Time|
+|      R3|       21.4|          Low|  Clear| Weekday|                    18|                 18|     On-Time|
+|      R8|      25.81|       Medium|  Rainy| Weekday|                    21|                 34|     Delayed|
+|      R5|       37.2|         High|  Clear| Weekend|                    27|                 45|     Delayed|
+|      R4|       2.73|          Low|  Clear| Weekend|                   100|                100|     On-Time|
+|      R8|      20.12|          Low|  Storm| Weekday|                    99|                109|     Delayed|
+|      R8|      28.13|         High|  Clear| Weekend|                    65|                 88|     Delayed|
+|      R3|      29.46|          Low|  Rainy| Weekday|                    99|                110|     Delayed|
++--------+-----------+-------------+-------+--------+----------------------+-------------------+------------+
+only showing top 20 rows
+
+>>> df.show(10)
++--------+-----------+-------------+-------+--------+----------------------+-------------------+------------+
+|route_id|distance_km|traffic_level|weather|day_type|scheduled_duration_min|actual_duration_min|delay_status|
++--------+-----------+-------------+-------+--------+----------------------+-------------------+------------+
+|      R7|      33.45|       Medium|  Rainy| Weekday|                    27|                 41|     Delayed|
+|      R4|      31.05|         High|  Clear| Weekday|                    16|                 32|     Delayed|
+|      R5|      23.79|          Low|  Clear| Weekend|                    96|                 93|     On-Time|
+|      R7|      38.33|          Low|  Rainy| Weekday|                   106|                117|     Delayed|
+|      R3|       9.62|       Medium|  Clear| Weekday|                    71|                 76|     Delayed|
+|      R8|       6.15|         High|  Storm| Weekday|                    54|                 89|     Delayed|
+|      R5|      34.45|       Medium|  Rainy| Weekday|                    25|                 40|     Delayed|
+|      R5|      18.69|       Medium|  Storm| Weekday|                    73|                 99|     Delayed|
+|      R7|      34.18|       Medium|  Clear| Weekday|                    46|                 50|     Delayed|
+|      R2|      35.94|         High|    Fog| Weekend|                    34|                 47|     Delayed|
++--------+-----------+-------------+-------+--------+----------------------+-------------------+------------+
+only showing top 10 rows
+
+>>> df.printSchema
+<bound method DataFrame.printSchema of DataFrame[route_id: string, distance_km: double, traffic_level: string, weather: string, day_type: string, scheduled_duration_min: int, actual_duration_min: int, delay_status: string]>
+>>>
+>>> df.printSchema()
+root
+ |-- route_id: string (nullable = true)
+ |-- distance_km: double (nullable = true)
+ |-- traffic_level: string (nullable = true)
+ |-- weather: string (nullable = true)
+ |-- day_type: string (nullable = true)
+ |-- scheduled_duration_min: integer (nullable = true)
+ |-- actual_duration_min: integer (nullable = true)
+ |-- delay_status: string (nullable = true)
+
+>>> index_cols = ["route_id", "traffic_level", "weather", "day_type", "delay_status"]
+>>> for col in index_cols:
+...     data = StringIndexer(inputCol=col, outputCol=col+"_idx").fit(data).transform(data)
+...
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+NameError: name 'StringIndexer' is not defined
+>>> from pyspark.ml.feature import StringIndexer
+>>>
+>>> index_cols = ["route_id", "traffic_level", "weather", "day_type", "delay_status"]
+>>> for col in index_cols:
+...     data = StringIndexer(inputCol=col, outputCol=col + "_idx").fit(data).transform(data)
+...
+>>>
+>>> feature_columns = ["distance_km","scheduled_duration_min","actual_duration_min","route_id_idx","traffic_level_idx","weather_idx","day_type_idx"]
+>>>
+>>> assembler = VectorAssembler(inputCols=feature_columns, outputCol="features")
+>>> data2 = assembler.transform(data).select("features", "delay_status_idx")
+>>> data2 = data2.withColumnRenamed("delay_status_idx", "target")
+>>> train, test = data2.randomSplit([0.7, 0.3], seed=42)
+>>> svm = LinearSVC(featuresCol="features", labelCol="target", maxIter=50, regParam=0.1)
+>>> svm_model = svm.fit(train)
+25/11/12 01:28:56 WARN InstanceBuilder: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+25/11/12 01:28:56 WARN InstanceBuilder: Failed to load implementation from:dev.ludovic.netlib.blas.VectorBLAS
+>>>
+>>> svm_pred = svm_model.transform(test)
+>>> acc_eval = MulticlassClassificationEvaluator(labelCol="target", predictionCol="prediction", metricName="accuracy")
+>>>
+>>> print("SVM Accuracy:", acc_eval.evaluate(svm_pred))
+SVM Accuracy: 0.8225806451612904
+>>> svm_pred.select("target", "prediction").show(10, truncate=False)
++------+----------+
+|target|prediction|
++------+----------+
+|0.0   |0.0       |
+|0.0   |0.0       |
+|0.0   |0.0       |
+|0.0   |0.0       |
+|0.0   |0.0       |
+|0.0   |0.0       |
+|0.0   |0.0       |
+|0.0   |0.0       |
+|0.0   |0.0       |
+|0.0   |0.0       |
++------+----------+
+only showing top 10 rows
+
+>>> import pandas as pd
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'pandas'
+>>> >>> import pandas as pd
+  File "<stdin>", line 1
+    >>> import pandas as pd
+    ^^
+SyntaxError: invalid syntax
+>>> Traceback (most recent call last):
+  File "<stdin>", line 1
+    Traceback (most recent call last):
+               ^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+>>>   File "<stdin>", line 1, in <module>
+  File "<stdin>", line 1
+    File "<stdin>", line 1, in <module>
+IndentationError: unexpected indent
+>>> ModuleNotFoundError: No module named 'pandas'
+  File "<stdin>", line 1
+    ModuleNotFoundError: No module named 'pandas'
+                            ^^^^^^
+SyntaxError: invalid syntax
+>>> >>>
+  File "<stdin>", line 1
+    >>>
+    ^^
+SyntaxError: invalid syntax
+>>> import pandas as pd
+>>> import matplotlib.pyplot as plt
+>>> pdf = data.toPandas()
+>>> pdf["delay_status"].value_counts().plot(kind="bar", title="Delay Status Distribution")
+<Axes: title={'center': 'Delay Status Distribution'}, xlabel='delay_status'>
+>>> plt.show()
+>>>
+>>>
+>>> pd.crosstab(pdf["traffic_level"], pdf["delay_status"]).plot(kind="bar", title="Traffic Level vs Delay")
+<Axes: title={'center': 'Traffic Level vs Delay'}, xlabel='traffic_level'>
+>>> plt.show()
+>>> pd.crosstab(pdf["weather"], pdf["delay_status"]).plot(kind="bar", title="Weather vs Delay")
+<Axes: title={'center': 'Weather vs Delay'}, xlabel='weather'>
+>>> plt.show()
+>>>

@@ -1,0 +1,2 @@
+Node Js -> is an open source cross platform JavaScript runtime environment built on Chrome V8 engine.
+It allows us to execute js outside browser.
