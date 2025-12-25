@@ -1,21 +1,43 @@
-function Post() {
+import styles from "./Post.module.css";
+import { MdDelete } from "react-icons/md";
+
+function Post({ post }) {
+  if (!post) return null;
+
   return (
-    <div className="card" style={{ width: "18rem" }}>
-      <div className="card-body">
-        <h5 className="card-title">Card title</h5>
-        <h6 className="card-subtitle mb-2 text-body-secondary">
-          Card subtitle
-        </h6>
-        <p className="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card’s content.
-        </p>
-        <a href="#" className="card-link">
-          Card link
-        </a>
-        <a href="#" className="card-link">
-          Another link
-        </a>
+    <div className={styles.postCard}>
+      <button className={styles.deleteBtn}>
+        <MdDelete />
+      </button>
+
+      <div className={styles.postHeader}>
+        <div className={styles.avatar}>{post.userId?.toString().charAt(0)}</div>
+
+        <div>
+          <h6 className={styles.username}>{post.name}</h6>
+          <p className={styles.time}>2h ago</p>
+        </div>
+      </div>
+
+      <h5 className={styles.postTitle}>{post.title}</h5>
+
+      <p className={styles.postBody}>{post.body}</p>
+
+      <div className={styles.tags}>
+        {post.tags?.map((tag, index) => (
+          <span key={index} className={styles.tag}>
+            #{tag}
+          </span>
+        ))}
+      </div>
+
+      <div className={styles.postFooter}>
+        <span className={styles.reactions}>❤️ {post.reactions} likes</span>
+
+        <div className={styles.actions}>
+          <button>View</button>
+          <button>Share</button>
+        </div>
       </div>
     </div>
   );
