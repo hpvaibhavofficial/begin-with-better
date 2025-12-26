@@ -1,49 +1,108 @@
+import { useContext, useRef, useState } from "react";
+import styles from "./CreatePost.module.css";
+import { PostList } from "../store/post-store-list";
+
 const CreatePost = () => {
+  const { addPost } = useContext(PostList);
+  const [success, setSuccess] = useState(false);
+
+  const postTitleElement = useRef();
+  const postBodyElement = useRef();
+  const reactionsElement = useRef();
+  const userIdElement = useRef();
+  const tagsElement = useRef();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const postTitle = postTitleElement.current.value;
+    const postBody = postBodyElement.current.value;
+    const reactions = {
+      likes: parseInt(reactionsElement.current.value),
+    };
+    const userId = userIdElement.current.value;
+    const tags = tagsElement.current.value.split(" ");
+    addPost(postTitle, postBody, reactions, userId, tags);
+
+    postTitleElement.current.value = "";
+    postBodyElement.current.value = "";
+    reactionsElement.current.value = "";
+    userIdElement.current.value = "";
+    tagsElement.current.value = "";
+    setSuccess(true);
+    setTimeout(() => setSuccess(false), 2500);
+
+    console.log("Post added");
+  };
   return (
-    <>
-      <form>
-        <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">
-            Email address
-          </label>
-          <input
-            type="email"
-            className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-          />
-          <div id="emailHelp" className="form-text">
-            We'll never share your email with anyone else.
-          </div>
-        </div>
+    <div className={styles.formWrapper}>
+      <h2 className={styles.formTitle}>Create a New Post</h2>
 
-        <div className="mb-3">
-          <label htmlFor="exampleInputPassword1" className="form-label">
-            Password
+      <form onSubmit={handleSubmit}>
+        <div className={styles.formGroup}>
+          <label htmlFor="title" className={styles.label}>
+            Post Title
           </label>
           <input
-            type="password"
-            className="form-control"
-            id="exampleInputPassword1"
+            type="text"
+            ref={postTitleElement}
+            id="title"
+            className={styles.input}
           />
         </div>
 
-        <div className="mb-3 form-check">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="exampleCheck1"
-          />
-          <label className="form-check-label" htmlFor="exampleCheck1">
-            Check me out
+        <div className={styles.formGroup}>
+          <label htmlFor="body" className={styles.label}>
+            Post Body
           </label>
+          <textarea
+            id="body"
+            ref={postBodyElement}
+            rows="3"
+            className={styles.textarea}
+          ></textarea>
         </div>
 
-        <button type="submit" className="btn btn-primary">
-          Submit
+        <div className={styles.formGroup}>
+          <label htmlFor="reactions" className={styles.label}>
+            Reactions
+          </label>
+          <input
+            type="number"
+            ref={reactionsElement}
+            id="reactions"
+            className={styles.input}
+          />
+        </div>
+
+        <div className={styles.formGroup}>
+          <label htmlFor="userId" className={styles.label}>
+            User ID
+          </label>
+          <input
+            type="text"
+            ref={userIdElement}
+            id="userId"
+            className={styles.input}
+          />
+        </div>
+
+        <div className={styles.formGroup}>
+          <label htmlFor="tags" className={styles.label}>
+            Tags
+          </label>
+          <input
+            type="text"
+            ref={tagsElement}
+            id="tags"
+            className={styles.input}
+          />
+        </div>
+
+        <button className={styles.button} type="submit">
+          Add Post
         </button>
       </form>
-    </>
+    </div>
   );
 };
 

@@ -4,21 +4,67 @@ export const PostList = createContext({
   postList: [],
   addPost: () => {},
   deletePost: () => {},
+  addInitialPosts: () => {},
 });
 
-const postListReducer = (currPostList, action) => {};
+const postListReducer = (currPostList, action) => {
+  let newPostList = currPostList;
+  if (action.type === "DELETE_ITEM") {
+    newPostList = currPostList.filter(
+      (post) => post.id !== action.payload.postId
+    );
+  } else if (action.type === "ADD_POST") {
+    const newPost = action.payload;
+    newPostList = [newPost, ...currPostList];
+  } else if (action.type === "ADD_INITIAL_POSTS") {
+    newPostList = action.payload.posts;
+  }
+
+  return newPostList;
+};
 
 const PostListProvider = ({ children }) => {
-  const addItem = () => {};
-  const deleteItem = () => {};
+  const addPost = (postTitle, postBody, reactions, userId, userName, tags) => {
+    const action = {
+      type: "ADD_POST",
+      payload: {
+        id: Date.now(),
+        title: postTitle,
+        body: postBody,
+        reactions: reactions,
+        userId: userId,
+        tags: tags,
+      },
+    };
+    dispatchPostList(action);
+  };
 
-  const [postList, dispatchPostList] = useReducer(
-    postListReducer,
-    DEFAULT_POST_LIST
-  );
+  const deletePost = (postId) => {
+    const action = {
+      type: "DELETE_ITEM",
+      payload: {
+        postId,
+      },
+    };
+    dispatchPostList(action);
+  };
+
+  const addInitialPosts = (posts) => {
+    const action = {
+      type: "ADD_INITIAL_POSTS",
+      payload: {
+        posts,
+      },
+    };
+    dispatchPostList(action);
+  };
+
+  const [postList, dispatchPostList] = useReducer(postListReducer, []);
 
   return (
-    <PostList.Provider value={{ postList, addItem, deleteItem }}>
+    <PostList.Provider
+      value={{ postList, addPost, deletePost, addInitialPosts }}
+    >
       {children}
     </PostList.Provider>
   );
