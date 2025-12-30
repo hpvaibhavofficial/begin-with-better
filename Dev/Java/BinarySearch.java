@@ -5,7 +5,7 @@ public class BinarySearch {
         int left = 0;
         int right = n - 1;
         int c = 0;
-        while (left < right) {
+        while (left <= right) {
             int mid = (left + right) / 2;
             if (arr[mid] == target) {
                 System.out.println("Target Found");
@@ -30,5 +30,6 @@ public class BinarySearch {
         }
         applyBinarySearch(arr, n, x);
         sc.close();
+
     }
 }

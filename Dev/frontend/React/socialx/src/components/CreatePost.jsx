@@ -4,7 +4,6 @@ import { PostList } from "../store/post-store-list";
 
 const CreatePost = () => {
   const { addPost } = useContext(PostList);
-  const [success, setSuccess] = useState(false);
 
   const postTitleElement = useRef();
   const postBodyElement = useRef();
@@ -21,15 +20,28 @@ const CreatePost = () => {
     };
     const userId = userIdElement.current.value;
     const tags = tagsElement.current.value.split(" ");
-    addPost(postTitle, postBody, reactions, userId, tags);
+
+    fetch("https://dummyjson.com/posts/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        title: postTitle,
+        body: postBody,
+        reactions: reactions,
+        userId: userId,
+        tags: tags,
+      }),
+    })
+      .then((res) => res.json())
+      .then((post) => {
+        addPost(post);
+      });
 
     postTitleElement.current.value = "";
     postBodyElement.current.value = "";
     reactionsElement.current.value = "";
     userIdElement.current.value = "";
     tagsElement.current.value = "";
-    setSuccess(true);
-    setTimeout(() => setSuccess(false), 2500);
 
     console.log("Post added");
   };

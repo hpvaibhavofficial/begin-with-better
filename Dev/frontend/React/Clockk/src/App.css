@@ -1,0 +1,59 @@
+/* App.css */
+
+/* Reset + layout */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* Light colorful background */
+  background: linear-gradient(135deg, #c9e7ff, #ffd9e8);
+}
+
+/* Header style */
+h1.fw-light {
+  color: #222;
+  font-weight: 300;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+/* DARK CLOCK CARD */
+.clock-body {
+  background: linear-gradient(145deg, #0f172a, #020617); /* deep navy → black */
+  color: #f1f5f9;
+
+  padding: 28px 44px;
+  border-radius: 18px;
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.45),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(4px);
+}
+
+/* Time text */
+.clock-body p {
+  margin: 0;
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #e5e7eb;
+
+  text-shadow: 0 0 14px rgba(0, 255, 255, 0.35); /* subtle glow */
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .clock-body p {
+    font-size: 2.6rem;
+  }
+}

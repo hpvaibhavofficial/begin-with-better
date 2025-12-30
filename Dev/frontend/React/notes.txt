@@ -46,9 +46,11 @@ accessed with props.children
 
 In React, events are handled via Synthetic Events, which are cross-browser wrappers around native DOM events. They use camelCase names (like onClick) and are passed as props, unlike standard JavaScript events that use addEventListener and lowercase names.
 
+-----------------------------------------------------------------------------------------------------------
+Use CallBack : 
 
-=----------------------------------------------------------------------------------------------=
-Brokers -> kafka servers
-zookeeper -> centralized server
+React router is a library that allows react apps to handle client side routing. It changes the UI based on URL without reloading the whole page making SPA feel like multiple page apps.
+
+npm install react-router-dom
 
 
