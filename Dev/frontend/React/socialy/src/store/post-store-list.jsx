@@ -56,21 +56,21 @@ const PostListProvider = ({ children }) => {
     };
     dispatchPostList(action);
   };
-  useEffect(() => {
-    setfetching(true);
-    const controller = new AbortController();
-    const signal = controller.signal;
-    fetch("https://dummyjson.com/posts", { signal })
-      .then((res) => res.json())
-      .then((data) => {
-        addInitialPosts(data.posts);
-        setfetching(false);
-      });
+  // useEffect(() => {
+  //   setfetching(true);
+  //   const controller = new AbortController();
+  //   const signal = controller.signal;
+  //   fetch("https://dummyjson.com/posts", { signal })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       addInitialPosts(data.posts);
+  //       setfetching(false);
+  //     });
 
-    return () => {
-      controller.abort();
-    };
-  }, []);
+  //   return () => {
+  //     controller.abort();
+  //   };
+  // }, []);
 
   const [postList, dispatchPostList] = useReducer(postListReducer, []);
 

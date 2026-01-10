@@ -1,0 +1,17 @@
+.app-Container{
+    display: flex;
+}
+.content{
+    width: 100%;
+}
+.sidebar
+{
+   min-height: 100vh;
+}
+
+.welcome-message{
+    margin: 70px;
+}
+.spinner{
+    margin : 10%;
+}

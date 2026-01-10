@@ -54,3 +54,14 @@ React router is a library that allows react apps to handle client side routing. 
 npm install react-router-dom
 
 
+DATA FETCHING USING LOADER
+Loader method can be used to load data before a particular route is executed.
+Loader must return the data that is loaded or promise.
+Data returned is available in all the child components.
+useLoaderData hook can be used to get the fetched data
+Loading state can also be used.
+
+SUBMITING DATA USING ACTION
+
+
+

@@ -1,9 +1,11 @@
 import { useContext, useRef, useState } from "react";
 import styles from "./CreatePost.module.css";
 import { PostList } from "../store/post-store-list";
+import { useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
   const { addPost } = useContext(PostList);
+  const navigate = useNavigate();
 
   const postTitleElement = useRef();
   const postBodyElement = useRef();
@@ -35,6 +37,7 @@ const CreatePost = () => {
       .then((res) => res.json())
       .then((post) => {
         addPost(post);
+        navigate("/");
       });
 
     postTitleElement.current.value = "";
