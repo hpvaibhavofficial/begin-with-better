@@ -61,7 +61,11 @@ Data returned is available in all the child components.
 useLoaderData hook can be used to get the fetched data
 Loading state can also be used.
 
-SUBMITING DATA USING ACTION
-
+REDUX TOOLKIT
+npm install @reduxjs/toolkit
+createSlice(name,initialstate,reducers)
+configureStore({reducer:{
+})
+useSelectors for  consuming and useDispatch for dispatching actions and wrap the component inside Provider and pass store =storename to pass central store to components.
 
 

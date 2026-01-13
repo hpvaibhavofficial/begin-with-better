@@ -149,7 +149,26 @@ Filter Chain is a design pattern by which we can create different filters.
 
 Requests comes from Tomcat servers and then it went through filter chain . filter chain have different filters like corsfilter , char encoding filter which checks requests fpffernt works
  
+----------------------------------------------------------------------------------------------------------
+IOC(Inversion of Control) : is a core part of spring framework which means we don't have to create or manage dependencies. Spring do this for us now.
+Dependencies means object creation and managing their lifecycle.
+These dependencies are known as beans.
 
+
+IOC Container : is the core component of spring framework and is responsible for managing the lifecycle of beans and their dependencies.
+The code which is responsible for doing the dependency injection is known ad IoC Container.
+
+Two Types of IOC Container
+-> Bean Factory 
+-> Application Context
+
+Spring Boot uses Application Context.
+
+Dependency Injection: is a design principle where an object does not create its own dependencies instead they are provided from outside.
+
+Two main types
+-> Constructor injection
+-> Setter Injection
 
 
 
